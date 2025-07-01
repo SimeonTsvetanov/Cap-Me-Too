@@ -58,8 +58,8 @@ jobs:
       - name: 📦 Install dependencies
         run: pnpm install
 
-      - name: 🏗️ Build with Next.js (verbose)
-        run: pnpm run build --verbose || (echo 'Build failed' && exit 1)
+      - name: 🏗️ Build with Next.js
+        run: pnpm run build
         env:
           NODE_ENV: production
           GITHUB_PAGES: true
