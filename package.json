@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
     "dev": "next dev",
+    "build": "next build && next export",
     "lint": "next lint",
     "start": "next start",
-    "postbuild": "node scripts/post-export-copy-assets.js",
     "export": "next export",
     "deploy": "pnpm run build && pnpm run export && touch out/.nojekyll && git add -f out/ && git commit -m 'deploy: static export' || echo 'No changes to commit' && git subtree push --prefix out origin gh-pages"
   },
