@@ -346,24 +346,48 @@ Your deployment is successful when:
 
 ## 🛠️ Static Export & Asset Copy for GitHub Pages
 
-### Why a Post-Build Asset Copy is Needed
+### Why do we place _everything_ inside `/Cap-Me-Too/`?
 
-GitHub Pages serves your site from a subdirectory (e.g., `/Cap-Me-Too/`). Next.js static export puts all public assets at the root of the `out/` directory, but you must ensure all icons, manifest, and service worker files are present in `/out` for correct PWA and favicon support.
+GitHub Pages maps the request path **1-to-1** to a file inside the build artifact. When your URL is
 
-### Automated Asset Copy Step
+```
+https://username.github.io/Cap-Me-Too/favicon.ico
+```
 
-After every build, a script (`scripts/post-export-copy-assets.js`) copies all required PWA assets from `/public` to `/out`.
+the platform will look for the file **_inside a folder named `Cap-Me-Too` at the root of the artifact_**. If the file lives elsewhere (for example directly in `out/favicon.ico`) the result is a 404. Therefore:
 
-**How it works:**
+1. `next.config.mjs` sets `basePath` **and** `assetPrefix` to `/Cap-Me-Too`.
+2. Next.js writes its HTML into `out/index.html` but still references every asset as `/Cap-Me-Too/...`.
+3. A tiny post-build script moves/copies the entire icon/manifest/service-worker set into `out/Cap-Me-Too/` so that the paths match.
 
-- Run `npm run build` (which triggers `postbuild` automatically)
-- All icons, manifest, and sw.js are copied to `/out`
-- Guarantees correct PWA and favicon support on GitHub Pages
+### Automated Post-Build Step
 
-**You can also run manually:**
+The script responsible is `scripts/post-export-copy-assets.js`.
+
+• It runs automatically via the `postbuild` npm hook.  
+• It calculates the **target folder** from `NEXT_BASE_PATH` (defaults to `Cap-Me-Too`).  
+• It then creates the folder and copies the 18-icon set, `manifest.json`, and `sw.js` into it.
+
+Build & deploy lifecycle:
 
 ```bash
-npm run postbuild
+# === Local test ===
+pnpm run build               # Produces ./out
+npx serve ./out -l 5000      # http://localhost:5000/Cap-Me-Too/
+
+# === CI === (see .github/workflows/deploy.yml)
+1. Checkout code
+2. pnpm install
+3. GITHUB_PAGES=true NEXT_BASE_PATH="/Cap-Me-Too" pnpm run build
+4. Upload ./out as Pages artifact
+```
+
+With this layout every request (HTML, JS, icons, manifest, service-worker) resolves without redirection or duplication, in both production and preview environments.
+
+**Manual run:**
+
+```bash
+pnpm run postbuild
 ```
 
 ---

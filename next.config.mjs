@@ -6,7 +6,7 @@ const nextConfig = {
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   basePath: isGithubPages ? "/Cap-Me-Too" : "",
-  assetPrefix: isGithubPages ? "/Cap-Me-Too/" : "",
+  assetPrefix: isGithubPages ? "/Cap-Me-Too" : "",
   eslint: {
     ignoreDuringBuilds: true,
   },

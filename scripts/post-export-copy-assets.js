@@ -7,6 +7,19 @@ const path = require("path");
 const publicDir = path.join(__dirname, "..", "public");
 const outDir = path.join(__dirname, "..", "out");
 
+// Determine the output target directory. If we are building for GitHub Pages,
+// the site will be served under the basePath ("/Cap-Me-Too") segment, so the
+// assets must physically reside in /out/Cap-Me-Too.  Read the value from
+// NEXT_BASE_PATH (injected by the workflow) or default to "Cap-Me-Too" to
+// preserve backward-compatibility.
+const basePath = process.env.NEXT_BASE_PATH || "Cap-Me-Too"; // keep in sync with next.config.mjs
+
+// Where to copy the assets
+const targetDir = path.join(outDir, basePath.replace(/^\//, ""));
+
+// Ensure the folder exists before copying
+fs.mkdirSync(targetDir, { recursive: true });
+
 // List of files to copy (add more if needed)
 const filesToCopy = [
   "manifest.json",
@@ -36,13 +49,19 @@ const filesToCopy = [
   "screenshot-narrow.png",
 ];
 
+// Perform copy into the target directory
 filesToCopy.forEach((file) => {
   const src = path.join(publicDir, file);
-  const dest = path.join(outDir, file);
+  const dest = path.join(targetDir, file);
   if (fs.existsSync(src)) {
     fs.copyFileSync(src, dest);
-    console.log(`Copied ${file} to /out`);
+    console.log(`Copied ${file} to ${path.relative(outDir, dest)}`);
   }
 });
 
-console.log("✅ All PWA assets copied to /out for GitHub Pages.");
+console.log(
+  `✅ All PWA assets copied into ${path.relative(
+    outDir,
+    targetDir
+  )}/ for GitHub Pages.`
+);
