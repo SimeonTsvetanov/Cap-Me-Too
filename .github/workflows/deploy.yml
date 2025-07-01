@@ -30,6 +30,12 @@ jobs:
         run: |
           pnpm run build
 
+      - name: Move static export files into Cap-Me-Too subfolder
+        run: |
+          mkdir -p out/Cap-Me-Too
+          shopt -s extglob
+          mv out/!(Cap-Me-Too|.nojekyll) out/Cap-Me-Too/
+
       - name: Add .nojekyll to out/
         run: |
           touch out/.nojekyll
