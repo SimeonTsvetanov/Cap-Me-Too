@@ -39,9 +39,8 @@ jobs:
 
       - name: Build with Next.js
         env:
-          GITHUB_PAGES: true
           NEXT_BASE_PATH: "/Cap-Me-Too"
-        run: pnpm run build
+        run: GITHUB_PAGES=true pnpm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
