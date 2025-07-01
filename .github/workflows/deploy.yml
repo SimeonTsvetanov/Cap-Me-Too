@@ -29,7 +29,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: 18
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -69,8 +69,8 @@ jobs:
           echo "✅ Build output verified - 'out' directory exists"
           ls -la out/
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
         with:
           path: ./out
 
