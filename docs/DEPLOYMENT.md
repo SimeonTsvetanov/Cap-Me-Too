@@ -83,6 +83,15 @@ git commit -m "Manual deployment"
 git push origin main
 ```
 
+## ✅ Latest Fixes (2025)
+
+### Critical Issues Resolved
+
+1. **Middleware Incompatibility**: Disabled `middleware.ts` (renamed to `.disabled`) - middleware is incompatible with Next.js static export
+2. **Metadata Warnings**: Fixed Next.js 14 warnings by separating `viewport` export from `metadata`
+3. **Security Headers**: Moved from middleware to meta tags in `layout.tsx` for static export compatibility
+4. **Build Optimization**: Updated GitHub Actions workflow for proper environment variable handling
+
 ## 🔍 Troubleshooting
 
 ### Common Issues and Solutions
@@ -110,9 +119,10 @@ GITHUB_PAGES=true pnpm run build
 
 **Solution**:
 
-- Ensure `middleware.ts` is renamed to `middleware.ts.disabled`
-- Check for any server-side code (`use server`, API routes, etc.)
+- ✅ **FIXED**: `middleware.ts` has been disabled (renamed to `.disabled`)
+- Ensure no server-side code (`use server`, API routes, etc.)
 - Verify `next.config.mjs` has `output: "export"`
+- Check for Jest worker errors (clear cache if needed)
 
 #### 3. Assets Not Loading (404 Errors)
 
