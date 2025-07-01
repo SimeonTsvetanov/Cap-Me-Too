@@ -1,27 +1,14 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages (gh-pages branch)
 
 on:
   push:
     branches: [main]
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  # Build job
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout source code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -29,27 +16,28 @@ jobs:
         with:
           node-version: 18
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build with Next.js
+      - name: Build and export static site
         env:
-          NEXT_BASE_PATH: "/Cap-Me-Too"
-        run: GITHUB_PAGES=true pnpm run build
+          GITHUB_PAGES: true
+        run: |
+          pnpm run build
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+      - name: Add .nojekyll to out/
+        run: |
+          touch out/.nojekyll
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: ./out
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: gh-pages
+          force_orphan: true
+# Notes for maintainers:
+# - This workflow builds the site from main and deploys only the static files to gh-pages.
+# - Source code stays on main; gh-pages contains only the static site.
+# - After first deploy, set GitHub Pages (Settings > Pages) to branch: gh-pages, folder: / (root).
+# - All static files (manifest, icons, sw.js, etc.) will be at the root of gh-pages for correct URLs.
