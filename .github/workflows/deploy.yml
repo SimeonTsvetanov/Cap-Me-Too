@@ -59,9 +59,12 @@ jobs:
         run: pnpm install
 
       - name: 🏗️ Build with Next.js
-        run: npm run build
+        run: pnpm run build
         env:
           NODE_ENV: production
+
+      - name: 📤 Export static site
+        run: pnpm exec next export
 
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
