@@ -69,6 +69,9 @@ jobs:
           echo "Listing out directory contents:"
           ls -l out || echo "No out directory found"
 
+      - name: List root directory after build
+        run: ls -l
+
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
