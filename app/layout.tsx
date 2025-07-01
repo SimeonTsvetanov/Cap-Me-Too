@@ -1,5 +1,5 @@
 import type React from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { AppProviders } from "@/components/providers/app-providers";
@@ -17,13 +17,19 @@ const inter = Inter({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: "#6366f1",
+};
+
 export const metadata: Metadata = {
   title: "CapMeToo - AI Caption Generator",
   description:
     "Generate amazing social media captions from your photos using AI",
   manifest: "/Cap-Me-Too/manifest.json",
-  themeColor: "#6366f1",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+  metadataBase: new URL("https://simeontsvetanov.github.io/Cap-Me-Too/"),
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
@@ -31,11 +37,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.svg", sizes: "any", type: "image/svg+xml" },
+      { url: "/Cap-Me-Too/favicon.ico", sizes: "any" },
+      { url: "/Cap-Me-Too/icon.svg", sizes: "any", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      {
+        url: "/Cap-Me-Too/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
     ],
   },
   robots: {
@@ -92,9 +102,9 @@ export default function RootLayout({
         />
 
         {/* Favicons */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/Cap-Me-Too/favicon.ico" sizes="any" />
+        <link rel="icon" href="/Cap-Me-Too/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/Cap-Me-Too/apple-touch-icon.png" />
 
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
@@ -117,6 +127,25 @@ export default function RootLayout({
         <meta
           httpEquiv="Content-Security-Policy"
           content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://generativelanguage.googleapis.com;"
+        />
+
+        {/* Service Worker Registration */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/Cap-Me-Too/sw.js')
+                    .then(function(registration) {
+                      console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                      console.log('SW registration failed: ', registrationError);
+                    });
+                });
+              }
+            `,
+          }}
         />
       </head>
       <body

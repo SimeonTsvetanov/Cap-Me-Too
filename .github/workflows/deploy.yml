@@ -38,8 +38,9 @@ jobs:
         run: pnpm install
 
       - name: Build with Next.js
-        run: |
-          GITHUB_PAGES=true pnpm run build
+        env:
+          GITHUB_PAGES: true
+        run: pnpm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
