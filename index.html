@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapMeToo - AI Caption Generator</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512x512.png">
+    <link rel="apple-touch-icon" href="icon-192x192.png">
+    <meta name="theme-color" content="#6366f1">
+    <meta name="description" content="Generate amazing social media captions from your photos using AI">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- API Key Setup Screen -->
+    <div id="apiKeySetup" class="setup-screen">
+        <div class="setup-container">
+            <div class="logo">
+                <h1>CapMeToo</h1>
+                <p>AI-Powered Caption Generator</p>
+            </div>
+            
+            <div class="setup-content">
+                <h2>Get Started</h2>
+                <p>To use CapMeToo, you'll need a Google AI API key. Don't worry, it's free and takes just a few minutes!</p>
+                
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Get Your API Key</h3>
+                            <p>Visit Google AI Studio to get your free API key</p>
+                            <a href="https://aistudio.google.com/app/apikey" target="_blank" class="btn-link">
+                                Get API Key →
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Enter Your Key</h3>
+                            <p>Paste your API key below (it stays on your device)</p>
+                            <div class="input-group">
+                                <input type="password" id="apiKeyInput" placeholder="Enter your Google AI API key">
+                                <button type="button" id="toggleApiKey" class="toggle-btn">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="saveApiKey" class="btn-primary" disabled>
+                    Start Using CapMeToo
+                </button>
+                
+                <div class="security-note">
+                    🔒 Your API key is stored locally on your device and never shared
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="mainApp" class="main-app hidden">
+        <header class="app-header">
+            <div class="header-content">
+                <h1>CapMeToo</h1>
+                <button id="settingsBtn" class="settings-btn">⚙️</button>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <div class="upload-icon">📸</div>
+                        <h3>Upload Your Photo</h3>
+                        <p>Drag & drop or click to select</p>
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                    </div>
+                </div>
+                
+                <div class="image-preview hidden" id="imagePreview">
+                    <img id="previewImg" alt="Preview">
+                    <button id="removeImage" class="remove-btn">×</button>
+                </div>
+            </div>
+
+            <div class="options-section">
+                <div class="topics-section">
+                    <h3>Caption Style</h3>
+                    <div class="topics-grid">
+                        <button class="topic-btn active" data-topic="general">✨ General</button>
+                        <button class="topic-btn" data-topic="travel">✈️ Travel</button>
+                        <button class="topic-btn" data-topic="food">🍕 Food</button>
+                        <button class="topic-btn" data-topic="fitness">💪 Fitness</button>
+                        <button class="topic-btn" data-topic="lifestyle">🌟 Lifestyle</button>
+                        <button class="topic-btn" data-topic="business">💼 Business</button>
+                        <button class="topic-btn" data-topic="nature">🌿 Nature</button>
+                        <button class="topic-btn" data-topic="fashion">👗 Fashion</button>
+                    </div>
+                </div>
+
+                <button id="generateBtn" class="btn-generate" disabled>
+                    <span class="btn-text">Generate Caption</span>
+                    <span class="btn-loader hidden">Generating...</span>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Caption Modal -->
+    <div id="captionModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Your Caption</h3>
+                <button id="closeModal" class="close-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="caption-result" id="captionResult">
+                    <!-- Generated caption will appear here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="refreshCaption" class="btn-secondary">🔄 Regenerate</button>
+                <button id="copyCaption" class="btn-primary">📋 Copy</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Settings</h3>
+                <button id="closeSettings" class="close-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-item">
+                    <label for="newApiKey">API Key</label>
+                    <div class="input-group">
+                        <input type="password" id="newApiKey" placeholder="Enter new API key">
+                        <button type="button" id="toggleNewApiKey" class="toggle-btn">👁️</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="updateApiKey" class="btn-primary">Update Key</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
