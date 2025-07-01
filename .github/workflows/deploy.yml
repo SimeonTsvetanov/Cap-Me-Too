@@ -30,11 +30,11 @@ jobs:
         run: |
           pnpm run build
 
-      - name: Move static export files into Cap-Me-Too subfolder
+      - name: Flatten Cap-Me-Too/ to out/ root for GitHub Pages
         run: |
-          mkdir -p out/Cap-Me-Too
-          shopt -s extglob
-          mv out/!(Cap-Me-Too|.nojekyll) out/Cap-Me-Too/
+          mv out/Cap-Me-Too/* out/
+          mv out/Cap-Me-Too/.* out/ || true
+          rm -rf out/Cap-Me-Too
 
       - name: Add .nojekyll to out/
         run: |
