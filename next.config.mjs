@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
+const isGithubPages = process.env.GITHUB_PAGES === "true";
+
 const nextConfig = {
-  output: 'export',
+  output: "export",
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
+  basePath: isGithubPages ? "/Cap-Me-Too" : "",
+  assetPrefix: isGithubPages ? "/Cap-Me-Too/" : "",
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -10,10 +14,10 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
   experimental: {
-    optimizePackageImports: ['lucide-react']
+    optimizePackageImports: ["lucide-react"],
   },
   // Optimize for production
   swcMinify: true,
@@ -21,6 +25,6 @@ const nextConfig = {
   compress: true,
   // Remove source maps in production
   productionBrowserSourceMaps: false,
-}
+};
 
-export default nextConfig
+export default nextConfig;
