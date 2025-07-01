@@ -17,11 +17,11 @@ export function PerformanceMonitor() {
         for (const entry of list.getEntries()) {
           // WHY: Not all PerformanceEntry types have a 'value' property. TypeScript will error if we access it blindly.
           // WHEN: Only log 'value' if it exists on the entry (e.g., for measures, paints, etc.)
-          // HOW: Use 'in' operator to check for 'value' property at runtime.
-          // WHY: This prevents runtime errors and satisfies TypeScript's type checking.
+          // HOW: Use 'in' operator to check for 'value' property at runtime, and type assertion to satisfy TypeScript.
+          // WHY: This prevents runtime errors and satisfies TypeScript's type checking for production builds.
           if ("value" in entry) {
-            // @ts-expect-error: Some entries may have 'value', but it's not in the base type
-            console.log(`${entry.name}: ${entry.value}`);
+            // Type assertion: entry as any, since 'value' is not in the base type but present in some subclasses
+            console.log(`${entry.name}: ${(entry as any).value}`);
           } else {
             console.log(`${entry.name}`);
           }
