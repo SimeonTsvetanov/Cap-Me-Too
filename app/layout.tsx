@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: "CapMeToo - AI Caption Generator",
   description:
     "Generate amazing social media captions from your photos using AI",
-  manifest: "/manifest.json",
+  manifest: "/Cap-Me-Too/manifest.json",
   themeColor: "#6366f1",
   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   appleWebApp: {
@@ -31,10 +31,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/icon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", sizes: "any", type: "image/svg+xml" },
     ],
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
@@ -54,14 +52,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://your-username.github.io/capmetoo",
+    url: "https://simeontsvetanov.github.io/Cap-Me-Too/",
     title: "CapMeToo - AI Caption Generator",
     description:
       "Generate amazing social media captions from your photos using AI",
     siteName: "CapMeToo",
     images: [
       {
-        url: "/icon-512x512.png",
+        url: "/Cap-Me-Too/icon.svg",
         width: 512,
         height: 512,
         alt: "CapMeToo Logo",
@@ -73,7 +71,7 @@ export const metadata: Metadata = {
     title: "CapMeToo - AI Caption Generator",
     description:
       "Generate amazing social media captions from your photos using AI",
-    images: ["/icon-512x512.png"],
+    images: ["/Cap-Me-Too/icon.svg"],
   },
   generator: "v0.dev",
 };
@@ -92,6 +90,12 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+
+        {/* Favicons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
