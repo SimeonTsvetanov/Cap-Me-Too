@@ -30,6 +30,10 @@ jobs:
         run: |
           pnpm run build
 
+      - name: Copy static assets to out root
+        run: |
+          cp -r out/Cap-Me-Too/* out/
+
       - name: Add .nojekyll to out/
         run: |
           touch out/.nojekyll
