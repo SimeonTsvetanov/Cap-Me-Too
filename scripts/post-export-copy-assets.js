@@ -14,11 +14,12 @@ const outDir = path.join(__dirname, "..", "out");
 // preserve backward-compatibility.
 const basePath = process.env.NEXT_BASE_PATH || "Cap-Me-Too"; // keep in sync with next.config.mjs
 
-// Where to copy the assets
+// Where to copy the assets (root and sub-folder)
 const targetDir = path.join(outDir, basePath.replace(/^\//, ""));
 
-// Ensure the folder exists before copying
+// Ensure both folders exist before copying
 fs.mkdirSync(targetDir, { recursive: true });
+fs.mkdirSync(outDir, { recursive: true });
 
 // List of files to copy (add more if needed)
 const filesToCopy = [
@@ -52,16 +53,21 @@ const filesToCopy = [
 // Perform copy into the target directory
 filesToCopy.forEach((file) => {
   const src = path.join(publicDir, file);
-  const dest = path.join(targetDir, file);
-  if (fs.existsSync(src)) {
-    fs.copyFileSync(src, dest);
-    console.log(`Copied ${file} to ${path.relative(outDir, dest)}`);
-  }
+  if (!fs.existsSync(src)) return;
+
+  // Copy to /out
+  const destRoot = path.join(outDir, file);
+  fs.copyFileSync(src, destRoot);
+
+  // Copy to /out/Cap-Me-Too
+  const destSub = path.join(targetDir, file);
+  fs.copyFileSync(src, destSub);
+
+  console.log(
+    `Copied ${file} -> [root] & [${path.relative(outDir, targetDir)}]`
+  );
 });
 
 console.log(
-  `✅ All PWA assets copied into ${path.relative(
-    outDir,
-    targetDir
-  )}/ for GitHub Pages.`
+  "✅ All PWA assets present in both root and sub-folder for GitHub Pages."
 );
