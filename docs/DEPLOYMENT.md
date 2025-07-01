@@ -155,7 +155,7 @@ jobs:
 
 ### Complete Icon Set (18 Icons)
 
-The application includes a comprehensive icon set generated from the main `/public/icon.svg`:
+The application includes a comprehensive icon set located in the `/Cap-Me-Too/` subfolder for GitHub Pages deployment:
 
 #### Browser Icons
 
@@ -197,7 +197,7 @@ bash scripts/generate-icons.sh
 
 # On Windows (PowerShell)
 # Run individual sharp commands as needed
-sharp -i public/icon.svg -o public/favicon-16x16.png resize 16 16
+sharp -i Cap-Me-Too/icon.svg -o Cap-Me-Too/favicon-16x16.png resize 16 16
 ```
 
 ### Icon Purposes
@@ -221,7 +221,7 @@ sharp -i public/icon.svg -o public/favicon-16x16.png resize 16 16
 **Solution Applied**:
 
 - ✅ Removed duplicate icons from root directory
-- ✅ Generated proper PWA icons from `/public/icon.svg` using sharp-cli:
+- ✅ Generated proper PWA icons from `/Cap-Me-Too/icon.svg` using sharp-cli:
   - `favicon.ico` (32x32) - Browser favicon
   - `apple-touch-icon.png` (180x180) - iOS home screen icon
   - `icon-192.png` (192x192) - PWA icon
@@ -253,7 +253,7 @@ sharp -i public/icon.svg -o public/favicon-16x16.png resize 16 16
 
 **Solution**:
 
-- Verify all icon files are in `/public/` directory
+- Verify all icon files are in `/Cap-Me-Too/` directory
 - Check browser console for 404 errors
 - Ensure GitHub Pages is serving from the correct branch
 
@@ -261,7 +261,7 @@ sharp -i public/icon.svg -o public/favicon-16x16.png resize 16 16
 
 **Check**:
 
-- Icon files exist in `/public/` directory
+- Icon files exist in `/Cap-Me-Too/` directory
 - Manifest.json has correct paths with `/Cap-Me-Too/` prefix
 - Layout.tsx includes all necessary icon links
 
@@ -275,7 +275,7 @@ sharp -i public/icon.svg -o public/favicon-16x16.png resize 16 16
 
 **Check**:
 
-- Service worker file exists at `/public/sw.js`
+- Service worker file exists at `/Cap-Me-Too/sw.js`
 - Registration script in layout.tsx is correct
 - No JavaScript errors in console
 

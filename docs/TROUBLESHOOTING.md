@@ -157,6 +157,7 @@ https://yourusername.github.io/Cap-Me-Too/
 1. **Wrong basePath**: Must match repository name exactly
 2. **Missing trailing slash**: Ensure `trailingSlash: true`
 3. **Incorrect assetPrefix**: Should be `/repository-name/`
+4. **Assets not in `/Cap-Me-Too/` subfolder**: All icons and static assets must be in `/Cap-Me-Too/` for GitHub Pages to serve them correctly.
 
 **Fix:**
 
@@ -168,6 +169,11 @@ const nextConfig = {
   trailingSlash: true, // Required for GitHub Pages
 };
 ```
+
+**Note:**
+
+- All icon files (favicon.ico, icon.svg, PWA icons) must be in the `/Cap-Me-Too/` subfolder, not the root or public/ for deployment.
+- Example: `https://username.github.io/Cap-Me-Too/favicon.ico` is served from `out/Cap-Me-Too/favicon.ico`.
 
 ### API Calls Failing
 

@@ -13,6 +13,7 @@ The easiest way to use CapMeToo is through our hosted version:
 3. **Start generating captions!**
 
 **Advantages:**
+
 - ✅ No installation required
 - ✅ Always up-to-date
 - ✅ Works on any device
@@ -25,6 +26,7 @@ The easiest way to use CapMeToo is through our hosted version:
 Perfect for developers who want to contribute or customize CapMeToo:
 
 #### Prerequisites
+
 - **Node.js 18+** - [Download here](https://nodejs.org/)
 - **npm 8+** (comes with Node.js)
 - **Git** - [Download here](https://git-scm.com/)
@@ -54,14 +56,15 @@ Perfect for developers who want to contribute or customize CapMeToo:
    \`\`\`
 
 #### Available Scripts
+
 \`\`\`bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint with auto-fix
-npm run lint:check   # Check linting without fixing
-npm run type-check   # Run TypeScript checks
-npm run deploy       # Deploy to GitHub Pages
+npm run dev # Start development server
+npm run build # Build for production
+npm run start # Start production server
+npm run lint # Run ESLint with auto-fix
+npm run lint:check # Check linting without fixing
+npm run type-check # Run TypeScript checks
+npm run deploy # Deploy to GitHub Pages
 \`\`\`
 
 ---
@@ -71,17 +74,20 @@ npm run deploy       # Deploy to GitHub Pages
 Want to host CapMeToo on your own domain? Here are your options:
 
 #### GitHub Pages (Free)
+
 1. **Fork** the [CapMeToo repository](https://github.com/YOUR-USERNAME/capmetoo)
 2. **Enable GitHub Pages** in repository settings
 3. **Set source** to "GitHub Actions"
 4. **Push to main branch** - automatic deployment starts!
 
 #### Vercel (Free)
+
 1. **Import** your forked repository to [Vercel](https://vercel.com)
 2. **Deploy** with one click
 3. **Custom domain** supported
 
 #### Netlify (Free)
+
 1. **Connect** your repository to [Netlify](https://netlify.com)
 2. **Build command**: `npm run build`
 3. **Publish directory**: `out`
@@ -96,12 +102,14 @@ CapMeToo works as a Progressive Web App on all devices:
 ### 📱 Mobile Installation
 
 #### iOS (Safari)
+
 1. Open CapMeToo in Safari
 2. Tap the **Share** button (📤)
 3. Select **"Add to Home Screen"**
 4. Tap **"Add"**
 
 #### Android (Chrome)
+
 1. Open CapMeToo in Chrome
 2. Tap the **menu** (⋮)
 3. Select **"Add to Home Screen"**
@@ -110,11 +118,13 @@ CapMeToo works as a Progressive Web App on all devices:
 ### 💻 Desktop Installation
 
 #### Chrome/Edge
+
 1. Open CapMeToo
 2. Look for the **install icon** (⬇️) in the address bar
 3. Click **"Install"**
 
 #### Firefox
+
 1. Open CapMeToo
 2. Click the **menu** (☰)
 3. Select **"Install This Site as an App"**
@@ -124,12 +134,14 @@ CapMeToo works as a Progressive Web App on all devices:
 ## 🔧 System Requirements
 
 ### Minimum Requirements
+
 - **Browser**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
 - **RAM**: 2GB
 - **Storage**: 50MB free space
 - **Internet**: Required for AI generation
 
 ### Recommended Requirements
+
 - **Browser**: Latest version of Chrome, Firefox, Safari, or Edge
 - **RAM**: 4GB+
 - **Storage**: 100MB+ free space
@@ -139,14 +151,14 @@ CapMeToo works as a Progressive Web App on all devices:
 
 ## 🌐 Browser Compatibility
 
-| Browser | Version | Support Level |
-|---------|---------|---------------|
-| Chrome | 90+ | ✅ Full Support |
-| Firefox | 88+ | ✅ Full Support |
-| Safari | 14+ | ✅ Full Support |
-| Edge | 90+ | ✅ Full Support |
-| Opera | 76+ | ✅ Full Support |
-| Samsung Internet | 14+ | ✅ Full Support |
+| Browser          | Version | Support Level   |
+| ---------------- | ------- | --------------- |
+| Chrome           | 90+     | ✅ Full Support |
+| Firefox          | 88+     | ✅ Full Support |
+| Safari           | 14+     | ✅ Full Support |
+| Edge             | 90+     | ✅ Full Support |
+| Opera            | 76+     | ✅ Full Support |
+| Samsung Internet | 14+     | ✅ Full Support |
 
 ---
 
@@ -167,32 +179,45 @@ After installation, verify everything works:
 ### Common Installation Issues
 
 #### "npm install" fails
+
 \`\`\`bash
+
 # Clear npm cache
+
 npm cache clean --force
 
 # Delete node_modules and package-lock.json
+
 rm -rf node_modules package-lock.json
 
 # Reinstall
+
 npm install
 \`\`\`
 
 #### Port 3000 already in use
+
 \`\`\`bash
+
 # Use different port
+
 npm run dev -- -p 3001
 \`\`\`
 
 #### Build fails
+
 \`\`\`bash
+
 # Check Node.js version
-node --version  # Should be 18+
+
+node --version # Should be 18+
 
 # Update dependencies
+
 npm update
 
 # Clean build
+
 npm run clean
 npm run build
 \`\`\`
@@ -200,12 +225,14 @@ npm run build
 ### Browser Issues
 
 #### App won't load
+
 - Clear browser cache and cookies
 - Disable browser extensions
 - Try incognito/private mode
 - Check JavaScript is enabled
 
 #### PWA won't install
+
 - Ensure HTTPS connection
 - Clear browser data
 - Try different browser
@@ -239,3 +266,9 @@ Once CapMeToo is installed:
   <p><strong>🎉 Installation Complete!</strong></p>
   <p>Ready to create amazing captions? <a href="First-Steps">Let's get started!</a></p>
 </div>
+
+## 🛡️ Deployment Notes
+
+- All icons and static assets (favicon.ico, icon.svg, PWA icons) must be in the `/Cap-Me-Too/` subfolder for GitHub Pages deployment.
+- Do not place deployment icons in the root or public/ folders.
+- Example: `https://username.github.io/Cap-Me-Too/favicon.ico` is served from `out/Cap-Me-Too/favicon.ico`.

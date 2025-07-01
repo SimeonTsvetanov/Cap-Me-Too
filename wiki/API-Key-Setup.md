@@ -18,13 +18,16 @@ CapMeToo uses Google's Gemini 2.0 Flash API to generate intelligent captions. Th
 ### Step 1: Get Your Google AI API Key
 
 1. **Visit Google AI Studio**
+
    - Go to [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
 
 2. **Sign In**
+
    - Use your Google account to sign in
    - If you don't have one, create a free Google account
 
 3. **Create API Key**
+
    - Click **"Create API Key"**
    - Choose **"Create API key in new project"** (recommended)
    - Your API key will be generated instantly
@@ -38,10 +41,12 @@ CapMeToo uses Google's Gemini 2.0 Flash API to generate intelligent captions. Th
 ### Step 2: Configure CapMeToo
 
 1. **Open CapMeToo**
+
    - Visit [CapMeToo](https://YOUR-USERNAME.github.io/capmetoo)
    - You'll see the API key setup screen
 
 2. **Enter Your API Key**
+
    - Paste your API key in the input field
    - Click the eye icon (👁️) to verify it's correct
    - Click **"Start Using CapMeToo"**
@@ -58,6 +63,7 @@ CapMeToo uses Google's Gemini 2.0 Flash API to generate intelligent captions. Th
 ### Updating Your API Key
 
 1. **Open the Menu**
+
    - Click the hamburger menu (☰) in the top-right corner
 
 2. **API Key Section**
@@ -68,6 +74,7 @@ CapMeToo uses Google's Gemini 2.0 Flash API to generate intelligent captions. Th
 ### Checking API Key Status
 
 Your current API key status is shown in the menu:
+
 - **Current**: `AIza****...****xyz` (masked for security)
 - **Status**: ✅ Valid / ❌ Invalid
 
@@ -85,11 +92,13 @@ Your current API key status is shown in the menu:
 ### Best Practices
 
 1. **Don't Share Your Key**
+
    - Never post your API key online
    - Don't share it in screenshots
    - Keep it private and secure
 
 2. **Monitor Usage**
+
    - Check your usage in [Google AI Studio](https://aistudio.google.com/)
    - Set up usage alerts if needed
 
@@ -114,6 +123,7 @@ Google AI provides generous free limits:
 ### Usage Monitoring
 
 Monitor your usage at:
+
 - [Google AI Studio Dashboard](https://aistudio.google.com/)
 - View daily/monthly usage statistics
 - Set up alerts for high usage
@@ -133,11 +143,13 @@ Monitor your usage at:
 #### "Invalid API Key" Error
 
 **Possible Causes:**
+
 - API key copied incorrectly
 - Extra spaces in the key
 - Key has been revoked
 
 **Solutions:**
+
 1. Double-check the API key for typos
 2. Copy the key again from Google AI Studio
 3. Generate a new API key if needed
@@ -145,11 +157,13 @@ Monitor your usage at:
 #### "API Request Failed" Error
 
 **Possible Causes:**
+
 - Network connectivity issues
 - API rate limits exceeded
 - Temporary Google AI service issues
 
 **Solutions:**
+
 1. Check your internet connection
 2. Wait a minute and try again
 3. Check [Google AI Status](https://status.cloud.google.com/)
@@ -157,10 +171,12 @@ Monitor your usage at:
 #### "Quota Exceeded" Error
 
 **Possible Causes:**
+
 - Daily or monthly limits reached
 - Too many requests in a short time
 
 **Solutions:**
+
 1. Wait for quota reset (daily: midnight UTC)
 2. Reduce request frequency
 3. Consider upgrading your Google AI plan
@@ -189,6 +205,7 @@ If you're migrating from other AI caption services:
 ### Backup Your Settings
 
 Before changing API keys:
+
 1. Note your current caption style preferences
 2. Save any favorite generated captions
 3. Export any custom settings (if applicable)
@@ -210,11 +227,21 @@ For developers or heavy users:
 For local development:
 
 \`\`\`bash
+
 # .env.local (optional - for development only)
+
 NEXT_PUBLIC_GEMINI_API_KEY=your_api_key_here
 \`\`\`
 
 > **⚠️ Warning**: Never commit API keys to version control!
+
+---
+
+## 🛡️ Deployment Notes
+
+- All icons and static assets (favicon.ico, icon.svg, PWA icons) must be in the `/Cap-Me-Too/` subfolder for GitHub Pages deployment.
+- Do not place deployment icons in the root or public/ folders.
+- Example: `https://username.github.io/Cap-Me-Too/favicon.ico` is served from `out/Cap-Me-Too/favicon.ico`.
 
 ---
 

@@ -9,7 +9,7 @@ This document summarizes the complete PWA (Progressive Web App) implementation a
 ### 1. **Icon System Complete Overhaul**
 
 - **Problem**: Duplicate, incorrect icons in wrong locations
-- **Solution**: Generated complete 18-icon set from original `/public/icon.svg`
+- **Solution**: Generated complete 18-icon set from `/Cap-Me-Too/icon.svg` (all icons are now in the `/Cap-Me-Too/` subfolder for GitHub Pages compatibility)
 - **Result**: All platforms now have proper icons
 
 ### 2. **PWA Manifest Enhancement**
@@ -34,7 +34,7 @@ This document summarizes the complete PWA (Progressive Web App) implementation a
 
 ### Browser Icons
 
-- `favicon.ico` (32x32) - Universal browser compatibility
+- `favicon.ico` (32x32) - Universal browser compatibility (in `/Cap-Me-Too/`)
 - `favicon-16x16.png` (16x16) - Classic browser tabs
 - `favicon-32x32.png` (32x32) - High-res browser tabs
 - `favicon-48x48.png` (48x48) - Windows desktop shortcuts
@@ -100,7 +100,7 @@ This document summarizes the complete PWA (Progressive Web App) implementation a
 #### 1. **Icon Generation**
 
 - `scripts/generate-icons.sh` - Complete icon generation script
-- Generated 18 icons using sharp-cli from `/public/icon.svg`
+- Generated 18 icons using sharp-cli from `/Cap-Me-Too/icon.svg` (all output to `/Cap-Me-Too/`)
 
 #### 2. **PWA Manifest**
 
@@ -175,7 +175,7 @@ This document summarizes the complete PWA (Progressive Web App) implementation a
 
 To update icons in the future:
 
-1. Replace `/public/icon.svg` with new design
+1. Replace `/Cap-Me-Too/icon.svg` with new design (regenerate all icons in `/Cap-Me-Too/`)
 2. Run: `bash scripts/generate-icons.sh`
 3. Test build and deployment
 4. Verify all icons display correctly

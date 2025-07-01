@@ -5,6 +5,7 @@ Welcome to CapMeToo! This guide will walk you through generating your very first
 ## 🎯 Prerequisites
 
 Before we start, make sure you have:
+
 - ✅ **CapMeToo open** in your browser
 - ✅ **Google AI API key** configured ([Setup guide](API-Key-Setup))
 - ✅ **A photo** ready to upload (any format: JPG, PNG, GIF, WebP)
@@ -14,16 +15,19 @@ Before we start, make sure you have:
 ## 📸 Step 1: Upload Your Photo
 
 ### Method 1: Click to Upload
+
 1. **Click the upload area** with the camera icon 📸
 2. **Select your photo** from your device
 3. **Wait for preview** to appear
 
 ### Method 2: Drag & Drop
+
 1. **Drag your photo** from your computer
 2. **Drop it** onto the upload area
 3. **Photo preview** appears automatically
 
 ### Photo Tips
+
 - 📏 **Any size works** - CapMeToo optimizes automatically
 - 🎨 **Clear images work best** - AI can better understand content
 - 📱 **Mobile photos perfect** - Taken with your phone camera
@@ -36,6 +40,7 @@ Before we start, make sure you have:
 Select from 9 different styles in the dropdown:
 
 ### Quick Style Guide
+
 - **😂 Funny** - Humorous, entertaining captions
 - **✨ General** - Versatile, works for anything
 - **✈️ Travel** - Adventure and wanderlust focused
@@ -74,6 +79,7 @@ Choose from 8 supported languages:
 3. **Caption appears** in a beautiful modal
 
 ### What Happens During Generation
+
 - 🤖 **AI analyzes** your photo content
 - 🎯 **Applies your chosen style** and language
 - ✨ **Creates unique caption** with emojis and hashtags
@@ -84,12 +90,15 @@ Choose from 8 supported languages:
 ## 📋 Step 5: Copy and Use Your Caption
 
 ### Copy Options
+
 1. **Click "Copy Caption"** button
 2. **Caption copied** to your clipboard automatically
 3. **Paste anywhere** - Instagram, Facebook, Twitter, etc.
 
 ### What You Get
+
 Your generated caption includes:
+
 - 📝 **Main caption text** - Engaging, style-appropriate content
 - 😊 **Relevant emojis** - Enhance visual appeal
 - #️⃣ **Smart hashtags** - Boost discoverability
@@ -115,18 +124,21 @@ Not happy with the first result? No problem!
 Let's say you uploaded a photo of your morning coffee:
 
 ### Input
+
 - 📸 **Photo**: Coffee cup on wooden table
 - 🎨 **Style**: General
 - 🌍 **Language**: English
 
 ### Generated Caption
+
 \`\`\`
-✨ Starting the day right with the perfect cup of motivation! 
-Sometimes the simplest moments bring the greatest joy. 
+✨ Starting the day right with the perfect cup of motivation!
+Sometimes the simplest moments bring the greatest joy.
 #coffee #morningvibes #blessed #goodmorning #coffeelover #dailyritual
 \`\`\`
 
 ### How to Use
+
 1. **Copy the caption**
 2. **Open Instagram** (or your preferred platform)
 3. **Create new post** with your coffee photo
@@ -150,17 +162,20 @@ After your first caption generation:
 ## 🚀 Next Level Tips
 
 ### Try Different Combinations
+
 - **Same photo, different styles** - See how style changes the tone
 - **Same photo, different languages** - Reach different audiences
 - **Different photos, same style** - Build consistent brand voice
 
 ### Experiment with Styles
+
 - **Food photo** → Try Food, Lifestyle, or General
 - **Travel photo** → Try Travel, Nature, or General
 - **Selfie** → Try Funny, Lifestyle, or General
 - **Workout photo** → Try Fitness, Lifestyle, or Motivational
 
 ### Build Your Strategy
+
 - **Choose 2-3 favorite styles** for consistency
 - **Match style to platform** (Business for LinkedIn, Funny for TikTok)
 - **Consider your audience** when selecting language
@@ -170,18 +185,21 @@ After your first caption generation:
 ## 🚨 Troubleshooting First Steps
 
 ### Photo Won't Upload
+
 - **Check file size** - Should be under 10MB
 - **Try different format** - JPG works best
 - **Check internet connection**
 - **Refresh page** and try again
 
 ### Caption Generation Fails
+
 - **Check API key** - Make sure it's valid
 - **Try again** - Sometimes temporary issues occur
 - **Check internet connection**
 - **Try different photo** - Some images work better
 
 ### Caption Doesn't Match Photo
+
 - **Use clearer photo** - AI needs to understand content
 - **Try different style** - Some styles work better for certain content
 - **Regenerate** - AI creates different results each time
@@ -193,6 +211,7 @@ After your first caption generation:
 You've successfully generated your first AI-powered caption! 🎊
 
 ### What You've Learned
+
 - ✅ How to upload photos to CapMeToo
 - ✅ How to choose appropriate caption styles
 - ✅ How to select languages for different audiences
@@ -221,6 +240,14 @@ We'd love to see your first CapMeToo-generated captions!
 - ⭐ **Star the project** on GitHub
 - 💬 **Join discussions** and share tips
 - 🐛 **Report any issues** to help improve
+
+---
+
+## 🛡️ Deployment Notes
+
+- All icons and static assets (favicon.ico, icon.svg, PWA icons) must be in the `/Cap-Me-Too/` subfolder for GitHub Pages deployment.
+- Do not place deployment icons in the root or public/ folders.
+- Example: `https://username.github.io/Cap-Me-Too/favicon.ico` is served from `out/Cap-Me-Too/favicon.ico`.
 
 ---
 

@@ -13,6 +13,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 **Perfect for**: Memes, casual posts, comedy content, lighthearted moments
 
 ### Characteristics
+
 - 🎭 **Humorous tone** with witty observations
 - 😄 **Playful language** and funny comparisons
 - 🎪 **Self-deprecating humor** when appropriate
@@ -20,6 +21,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 - 😂 **Comedy-focused emojis** and hashtags
 
 ### Example Captions
+
 \`\`\`
 😂 When life gives you lemons, take a selfie and make everyone wonder what you're up to! #funny #selfie #mood
 
@@ -29,6 +31,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 \`\`\`
 
 ### Best Used For
+
 - Funny pet photos
 - Awkward moments
 - Food fails
@@ -42,6 +45,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 **Perfect for**: Daily posts, versatile sharing, any occasion content
 
 ### Characteristics
+
 - 🌟 **Versatile tone** suitable for any audience
 - 💫 **Positive messaging** with universal appeal
 - 🎯 **Balanced approach** between casual and polished
@@ -49,6 +53,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 - ✨ **General-purpose hashtags** for broad reach
 
 ### Example Captions
+
 \`\`\`
 ✨ Living my best life! Every moment is a new adventure waiting to unfold. #blessed #goodvibes #lifestyle
 
@@ -58,6 +63,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 \`\`\`
 
 ### Best Used For
+
 - Daily life moments
 - General sharing
 - Mixed audience posts
@@ -71,6 +77,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 **Perfect for**: Vacation photos, travel blogs, adventure content, wanderlust posts
 
 ### Characteristics
+
 - 🗺️ **Adventure-focused language** with exploration themes
 - 🌍 **Wanderlust inspiration** and travel motivation
 - 📸 **Location appreciation** and cultural references
@@ -78,6 +85,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 - 🏔️ **Travel-specific hashtags** and emojis
 
 ### Example Captions
+
 \`\`\`
 ✈️ Wanderlust calling! Another beautiful destination checked off the bucket list. #travel #wanderlust #adventure
 
@@ -87,6 +95,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 \`\`\`
 
 ### Best Used For
+
 - Vacation photos
 - Scenic landscapes
 - Cultural experiences
@@ -100,6 +109,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 **Perfect for**: Restaurant visits, cooking content, food photography, culinary experiences
 
 ### Characteristics
+
 - 🍽️ **Appetizing descriptions** that make mouths water
 - 👨‍🍳 **Culinary appreciation** and food passion
 - 🤤 **Sensory language** describing taste and aroma
@@ -107,6 +117,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 - 🥘 **Food-specific hashtags** and emojis
 
 ### Example Captions
+
 \`\`\`
 🍕 Food is love, food is life! This delicious creation just made my entire day. #foodie #delicious #yummy
 
@@ -116,6 +127,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 \`\`\`
 
 ### Best Used For
+
 - Restaurant meals
 - Home cooking
 - Food photography
@@ -129,6 +141,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 **Perfect for**: Gym photos, workout progress, health content, motivational fitness posts
 
 ### Characteristics
+
 - 🏋️ **Motivational language** with strength themes
 - 💯 **Achievement focus** and progress celebration
 - 🔥 **High-energy tone** with action words
@@ -136,6 +149,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 - 💪 **Fitness-specific hashtags** and emojis
 
 ### Example Captions
+
 \`\`\`
 💪 No pain, no gain! Pushing limits and breaking barriers every single day. #fitness #motivation #strong
 
@@ -145,6 +159,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 \`\`\`
 
 ### Best Used For
+
 - Gym selfies
 - Workout videos
 - Progress photos
@@ -158,6 +173,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 **Perfect for**: Daily life, personal branding, aspirational content, lifestyle moments
 
 ### Characteristics
+
 - ✨ **Aspirational tone** with lifestyle focus
 - 🌈 **Personal branding** elements
 - 💎 **Quality of life** themes and self-care
@@ -165,6 +181,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 - 🌟 **Lifestyle hashtags** and trendy emojis
 
 ### Example Captions
+
 \`\`\`
 🌟 Finding joy in the simple moments. This is what happiness looks like! #lifestyle #happiness #blessed
 
@@ -174,6 +191,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 \`\`\`
 
 ### Best Used For
+
 - Daily routines
 - Personal moments
 - Lifestyle photography
@@ -187,6 +205,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 **Perfect for**: LinkedIn posts, professional updates, business content, career milestones
 
 ### Characteristics
+
 - 🎯 **Professional tone** with business focus
 - 📈 **Growth mindset** and achievement language
 - 🤝 **Networking elements** and professional values
@@ -194,6 +213,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 - 💼 **Business hashtags** and professional emojis
 
 ### Example Captions
+
 \`\`\`
 💼 Building dreams into reality, one strategic step at a time. #business #entrepreneur #growth
 
@@ -203,6 +223,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 \`\`\`
 
 ### Best Used For
+
 - Professional achievements
 - Business updates
 - Team photos
@@ -216,6 +237,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 **Perfect for**: Outdoor photos, nature shots, environmental content, peaceful moments
 
 ### Characteristics
+
 - 🌱 **Environmental appreciation** and nature connection
 - 🕊️ **Peaceful tone** with tranquil themes
 - 🌍 **Sustainability awareness** and eco-consciousness
@@ -223,6 +245,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 - 🌿 **Nature-specific hashtags** and earth emojis
 
 ### Example Captions
+
 \`\`\`
 🌿 Nature's beauty never fails to amaze and restore the soul. #nature #peaceful #earth
 
@@ -232,6 +255,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 \`\`\`
 
 ### Best Used For
+
 - Landscape photography
 - Outdoor adventures
 - Garden photos
@@ -245,6 +269,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 **Perfect for**: Outfit posts, fashion content, style inspiration, trendy looks
 
 ### Characteristics
+
 - 💅 **Style-conscious language** with fashion focus
 - ✨ **Trend awareness** and fashion-forward thinking
 - 👑 **Confidence building** and self-expression
@@ -252,6 +277,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 - 👗 **Fashion hashtags** and style emojis
 
 ### Example Captions
+
 \`\`\`
 👗 Style is a way to say who you are without speaking. #fashion #style #ootd
 
@@ -261,6 +287,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 \`\`\`
 
 ### Best Used For
+
 - Outfit of the day
 - Fashion photography
 - Style inspiration
@@ -274,6 +301,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 ### Quick Decision Guide
 
 **Ask yourself:**
+
 1. **What's the mood?** → Funny for humor, General for neutral
 2. **What's the context?** → Travel for trips, Food for meals
 3. **Who's the audience?** → Business for professionals, Lifestyle for personal
@@ -285,29 +313,32 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 
 ### Audience Considerations
 
-| Platform | Recommended Styles |
-|----------|-------------------|
+| Platform  | Recommended Styles               |
+| --------- | -------------------------------- |
 | Instagram | Fashion, Lifestyle, Food, Travel |
-| LinkedIn | Business, Professional content |
-| Facebook | General, Funny, Lifestyle |
-| Twitter | Funny, General, quick updates |
-| TikTok | Funny, Lifestyle, Fitness |
+| LinkedIn  | Business, Professional content   |
+| Facebook  | General, Funny, Lifestyle        |
+| Twitter   | Funny, General, quick updates    |
+| TikTok    | Funny, Lifestyle, Fitness        |
 
 ---
 
 ## 🔄 Style Switching Tips
 
 ### Experiment Freely
+
 - Try different styles for the same image
 - Compare results and choose your favorite
 - Learn what works best for your content
 
 ### Seasonal Adjustments
+
 - **Summer**: Travel, Nature, Lifestyle
 - **Winter**: Cozy Lifestyle, Food, Funny
 - **Holidays**: General, Funny, Food
 
 ### Brand Consistency
+
 - Choose 2-3 primary styles for your brand
 - Maintain consistent tone across posts
 - Adapt style to platform and audience
@@ -317,6 +348,7 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 ## 📊 Style Performance Tips
 
 ### Engagement Optimization
+
 - **Funny**: High engagement, viral potential
 - **Lifestyle**: Strong personal connection
 - **Travel**: High shareability
@@ -324,7 +356,9 @@ CapMeToo offers 9 distinct caption styles, each optimized for different types of
 - **Business**: Professional networking
 
 ### Hashtag Strategy
+
 Each style includes optimized hashtags:
+
 - **Trending hashtags** for discoverability
 - **Niche hashtags** for targeted reach
 - **Branded hashtags** for consistency
@@ -346,3 +380,9 @@ Now that you understand all caption styles:
   <p><strong>🎨 Master All 9 Styles!</strong></p>
   <p>Ready to create amazing captions? <a href="https://YOUR-USERNAME.github.io/capmetoo">Start generating now!</a></p>
 </div>
+
+## 🛡️ Deployment Notes
+
+- All icons and static assets (favicon.ico, icon.svg, PWA icons) must be in the `/Cap-Me-Too/` subfolder for GitHub Pages deployment.
+- Do not place deployment icons in the root or public/ folders.
+- Example: `https://username.github.io/Cap-Me-Too/favicon.ico` is served from `out/Cap-Me-Too/favicon.ico`.

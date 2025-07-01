@@ -39,6 +39,7 @@ CapMeToo is a **free, open-source Progressive Web App** that uses Google's Gemin
 ## ✨ Features
 
 ### 🎨 **Modern Design**
+
 - **Glass Morphism UI** - Beautiful backdrop blur effects and transparency
 - **Dark/Light Theme** - Automatic system theme detection with manual toggle
 - **Responsive Design** - Perfect experience on mobile, tablet, and desktop
@@ -46,6 +47,7 @@ CapMeToo is a **free, open-source Progressive Web App** that uses Google's Gemin
 - **Sidebar Navigation** - Modern slide-out menu following UX best practices
 
 ### 🤖 **AI-Powered Captions**
+
 - **9 Caption Styles** - Funny, General, Travel, Food, Fitness, Lifestyle, Business, Nature, Fashion
 - **8 Languages** - Native generation in English, Bulgarian, German, Spanish, French, Portuguese, Chinese, Hindi
 - **Smart Context** - AI analyzes your photos for relevant content
@@ -53,12 +55,14 @@ CapMeToo is a **free, open-source Progressive Web App** that uses Google's Gemin
 - **Easy Copying** - One-click copy to clipboard functionality
 
 ### 📱 **Progressive Web App**
+
 - **Installable** - Add to home screen on any device
 - **Offline Ready** - Works without internet connection with fallback captions
 - **Fast Loading** - Optimized performance with service worker caching
 - **Native Feel** - App-like experience with smooth navigation
 
 ### 🔒 **Privacy First**
+
 - **Local Storage** - API keys stored securely on your device
 - **No Data Collection** - Your photos and captions stay private
 - **Secure Processing** - All AI processing through encrypted connections
@@ -69,23 +73,30 @@ CapMeToo is a **free, open-source Progressive Web App** that uses Google's Gemin
 ## 🚀 Quick Start
 
 ### Option 1: Use Online (Recommended)
+
 1. **Visit** [CapMeToo](https://YOUR-USERNAME.github.io/capmetoo)
 2. **Get API Key** - Free [Google AI API key](https://aistudio.google.com/app/apikey)
 3. **Upload & Generate** - Upload a photo and start creating captions!
 
 ### Option 2: Run Locally
+
 \`\`\`bash
+
 # Clone the repository
+
 git clone https://github.com/YOUR-USERNAME/capmetoo.git
 cd capmetoo
 
 # Install dependencies
+
 npm install
 
 # Start development server
+
 npm run dev
 
 # Open http://localhost:3000
+
 \`\`\`
 
 ---
@@ -93,16 +104,19 @@ npm run dev
 ## 📖 How to Use
 
 ### 1. **Get Your API Key**
+
 - Visit [Google AI Studio](https://aistudio.google.com/app/apikey)
 - Create a free account and generate an API key
 - Copy the key for the next step
 
 ### 2. **Setup CapMeToo**
+
 - Open CapMeToo in your browser
 - Paste your API key in the setup screen
 - Your key is stored locally and never shared
 
 ### 3. **Generate Captions**
+
 - Upload any photo by clicking or dragging
 - Choose your preferred caption style and language
 - Click "Generate Caption" and wait for AI magic
@@ -113,19 +127,21 @@ npm run dev
 ## 🎯 Caption Styles & Languages
 
 ### Caption Styles
-| Style | Description | Perfect For |
-|-------|-------------|-------------|
-| 😂 **Funny** | Humorous and entertaining captions | Memes, casual posts, comedy content |
-| ✨ **General** | Versatile captions for any occasion | Daily posts, general sharing |
-| ✈️ **Travel** | Adventure and wanderlust focused | Vacation photos, travel blogs |
-| 🍕 **Food** | Delicious and appetizing descriptions | Restaurant visits, cooking |
-| 💪 **Fitness** | Motivational and health-focused | Gym photos, workout progress |
-| 🌟 **Lifestyle** | Aspirational and relatable content | Daily life, personal branding |
-| 💼 **Business** | Professional and growth-minded | LinkedIn, business updates |
-| 🌿 **Nature** | Environmental and peaceful vibes | Outdoor photos, nature shots |
-| 👗 **Fashion** | Style and trend-focused captions | Outfit posts, fashion content |
+
+| Style            | Description                           | Perfect For                         |
+| ---------------- | ------------------------------------- | ----------------------------------- |
+| 😂 **Funny**     | Humorous and entertaining captions    | Memes, casual posts, comedy content |
+| ✨ **General**   | Versatile captions for any occasion   | Daily posts, general sharing        |
+| ✈️ **Travel**    | Adventure and wanderlust focused      | Vacation photos, travel blogs       |
+| 🍕 **Food**      | Delicious and appetizing descriptions | Restaurant visits, cooking          |
+| 💪 **Fitness**   | Motivational and health-focused       | Gym photos, workout progress        |
+| 🌟 **Lifestyle** | Aspirational and relatable content    | Daily life, personal branding       |
+| 💼 **Business**  | Professional and growth-minded        | LinkedIn, business updates          |
+| 🌿 **Nature**    | Environmental and peaceful vibes      | Outdoor photos, nature shots        |
+| 👗 **Fashion**   | Style and trend-focused captions      | Outfit posts, fashion content       |
 
 ### Supported Languages
+
 - 🇺🇸 **English** - Native AI generation
 - 🇧🇬 **Bulgarian** - Native AI generation
 - 🇩🇪 **German** - Native AI generation
@@ -174,11 +190,33 @@ This project is configured for automatic deployment to GitHub Pages:
 4. **Visit your site** at `https://YOUR-USERNAME.github.io/capmetoo`
 
 The GitHub Action automatically:
+
 - ✅ Builds the Next.js application
 - ✅ Runs linting and type checking
 - ✅ Optimizes for static hosting
 - ✅ Deploys to GitHub Pages
 - ✅ Updates on every push to main
+
+### Project Structure
+
+```
+capmetoo/
+├── .github/workflows/   # GitHub Actions for CI/CD
+├── app/                 # Next.js app directory
+├── components/          # React components
+│   ├── app/            # App-specific components
+│   ├── layout/         # Layout components
+│   ├── modals/         # Modal components
+├── Cap-Me-Too/         # All deployment icons, manifest, and static assets for GitHub Pages
+│   ├── favicon.ico     # Browser favicon
+│   ├── icon.svg        # Vector icon
+│   ├── ...             # All PWA icons and static assets
+├── public/             # Source icons (for development only)
+├── out/                # Build output (for deployment)
+└── ...
+```
+
+**Important:** For GitHub Pages deployment, all icons and static assets (favicon.ico, icon.svg, PWA icons) must be in the `/Cap-Me-Too/` subfolder. Do not place deployment icons in the root or public/ folders.
 
 ---
 
@@ -187,12 +225,15 @@ The GitHub Action automatically:
 We welcome contributions! Here's how you can help:
 
 ### 🐛 **Report Bugs**
+
 Found a bug? [Create a bug report](https://github.com/YOUR-USERNAME/capmetoo/issues/new?template=bug_report.md)
 
 ### ✨ **Request Features**
+
 Have an idea? [Request a feature](https://github.com/YOUR-USERNAME/capmetoo/issues/new?template=feature_request.md)
 
 ### 💻 **Code Contributions**
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
@@ -200,12 +241,14 @@ Have an idea? [Request a feature](https://github.com/YOUR-USERNAME/capmetoo/issu
 5. Open a Pull Request
 
 ### 📖 **Documentation**
+
 - Fix typos and improve clarity
 - Add examples and use cases
 - Translate to other languages
 - Update outdated information
 
 ### 🌍 **Translations**
+
 Help us support more languages! Check our [translation guide](docs/CONTRIBUTING.md#translations).
 
 ---
@@ -219,48 +262,55 @@ Help us support more languages! Check our [translation guide](docs/CONTRIBUTING.
 ## 🔧 Development
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - npm or yarn
 - Google AI API key
 
 ### Environment Setup
+
 \`\`\`bash
+
 # Clone and install
+
 git clone https://github.com/YOUR-USERNAME/capmetoo.git
 cd capmetoo
 npm install
 
 # Start development server
+
 npm run dev
 \`\`\`
 
 ### Available Scripts
+
 \`\`\`bash
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint with auto-fix
-npm run lint:check   # Check linting without fixing
-npm run type-check   # Run TypeScript checks
-npm run deploy       # Deploy to GitHub Pages
+npm run dev # Start development server
+npm run build # Build for production
+npm run start # Start production server
+npm run lint # Run ESLint with auto-fix
+npm run lint:check # Check linting without fixing
+npm run type-check # Run TypeScript checks
+npm run deploy # Deploy to GitHub Pages
 \`\`\`
 
 ### Project Structure
+
 \`\`\`
 capmetoo/
-├── .github/workflows/   # GitHub Actions for CI/CD
-├── app/                 # Next.js app directory
-├── components/          # React components
-│   ├── app/            # App-specific components
-│   ├── layout/         # Layout components
-│   ├── modals/         # Modal components
-│   ├── setup/          # Setup components
-│   └── ui/             # Reusable UI components
-├── hooks/              # Custom React hooks
-├── utils/              # Utility functions
-├── public/             # Static assets
-├── docs/               # Documentation
-└── README.md           # This file
+├── .github/workflows/ # GitHub Actions for CI/CD
+├── app/ # Next.js app directory
+├── components/ # React components
+│ ├── app/ # App-specific components
+│ ├── layout/ # Layout components
+│ ├── modals/ # Modal components
+│ ├── setup/ # Setup components
+│ └── ui/ # Reusable UI components
+├── hooks/ # Custom React hooks
+├── utils/ # Utility functions
+├── public/ # Static assets
+├── docs/ # Documentation
+└── README.md # This file
 \`\`\`
 
 ---
