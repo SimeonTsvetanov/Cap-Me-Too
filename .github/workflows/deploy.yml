@@ -30,11 +30,8 @@ jobs:
         run: |
           pnpm run build
 
-      - name: Flatten Cap-Me-Too/ to out/ root for GitHub Pages
-        run: |
-          mv out/Cap-Me-Too/* out/
-          mv out/Cap-Me-Too/.* out/ || true
-          rm -rf out/Cap-Me-Too
+      - name: List out directory
+        run: ls -lR out
 
       - name: Add .nojekyll to out/
         run: |
