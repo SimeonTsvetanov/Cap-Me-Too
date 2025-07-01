@@ -9,6 +9,7 @@
 - [PWA Configuration](#pwa-configuration)
 - [Troubleshooting](#troubleshooting)
 - [Icon System](#icon-system)
+- [Static Export & Asset Copy for GitHub Pages](#static-export-asset-copy-for-github-pages)
 
 ## 🎯 Overview
 
@@ -342,6 +343,28 @@ Your deployment is successful when:
 - ✅ Offline functionality works
 - ✅ Caption generation works with Gemini API
 - ✅ No console errors related to missing assets
+
+## 🛠️ Static Export & Asset Copy for GitHub Pages
+
+### Why a Post-Build Asset Copy is Needed
+
+GitHub Pages serves your site from a subdirectory (e.g., `/Cap-Me-Too/`). Next.js static export puts all public assets at the root of the `out/` directory, but you must ensure all icons, manifest, and service worker files are present in `/out` for correct PWA and favicon support.
+
+### Automated Asset Copy Step
+
+After every build, a script (`scripts/post-export-copy-assets.js`) copies all required PWA assets from `/public` to `/out`.
+
+**How it works:**
+
+- Run `npm run build` (which triggers `postbuild` automatically)
+- All icons, manifest, and sw.js are copied to `/out`
+- Guarantees correct PWA and favicon support on GitHub Pages
+
+**You can also run manually:**
+
+```bash
+npm run postbuild
+```
 
 ---
 
