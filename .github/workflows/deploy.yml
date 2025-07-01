@@ -58,6 +58,11 @@ jobs:
       - name: 📦 Install dependencies
         run: pnpm install
 
+      - name: Print Node.js and Next.js versions
+        run: |
+          node --version
+          pnpm list next
+
       - name: 🏗️ Build with Next.js
         run: pnpm run build
         env:
