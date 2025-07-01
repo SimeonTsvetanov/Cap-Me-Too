@@ -64,6 +64,11 @@ jobs:
           NODE_ENV: production
           GITHUB_PAGES: true
 
+      - name: List output directory
+        run: |
+          echo "Listing out directory contents:"
+          ls -l out || echo "No out directory found"
+
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
