@@ -30,10 +30,10 @@ jobs:
         run: |
           pnpm run build
 
-      - name: List out directory structure
-        run: ls -la out && ls -la out/_next
+      - name: List out directory structure for debugging
+        run: ls -la out
 
-      - name: Add .nojekyll to out/
+      - name: Add .nojekyll file
         run: |
           touch out/.nojekyll
 
