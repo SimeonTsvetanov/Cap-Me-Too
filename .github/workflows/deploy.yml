@@ -30,8 +30,8 @@ jobs:
         run: |
           pnpm run build
 
-      - name: List out directory
-        run: ls -lR out
+      - name: List out directory structure
+        run: ls -la out && ls -la out/_next
 
       - name: Add .nojekyll to out/
         run: |
@@ -41,7 +41,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out/Cap-Me-Too
+          publish_dir: ./out
           publish_branch: gh-pages
           force_orphan: true
 # Notes for maintainers:
