@@ -33,6 +33,13 @@ jobs:
       - name: List out directory structure for debugging
         run: ls -la out
 
+      - name: Copy PWA assets from Cap-Me-Too/ to root for GitHub Pages
+        run: |
+          # Ensure PWA assets are available at both paths
+          # This is needed because the service worker and manifest are referenced with basePath
+          # but GitHub Pages serves the files from the root
+          cp -r out/Cap-Me-Too/* out/ || echo "No files to copy"
+
       - name: Add .nojekyll file
         run: |
           touch out/.nojekyll
