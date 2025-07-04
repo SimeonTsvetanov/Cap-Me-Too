@@ -180,22 +180,31 @@ CapMeToo is designed mobile-first with special attention to touch interfaces:
 
 ## 🚀 Deployment
 
-### Automatic GitHub Pages Deployment
+### Simple GitHub Pages Deployment (gh-pages branch)
 
-This project is configured for automatic deployment to GitHub Pages:
+This project uses a **single-command deployment** to GitHub Pages:
 
-1. **Fork or clone** this repository
-2. **Enable GitHub Pages** in repository settings (Source: GitHub Actions)
-3. **Push to main branch** - automatic deployment will start
-4. **Visit your site** at `https://YOUR-USERNAME.github.io/capmetoo`
+```bash
+npm run deploy
+```
 
-The GitHub Action automatically:
+This command:
+1. **Builds** the Next.js application as static files
+2. **Creates** `.nojekyll` file for GitHub Pages compatibility
+3. **Commits** build output to git
+4. **Deploys** to `gh-pages` branch using `git subtree`
 
-- ✅ Builds the Next.js application
-- ✅ Runs linting and type checking
-- ✅ Optimizes for static hosting
-- ✅ Deploys to GitHub Pages
-- ✅ Updates on every push to main
+**Setup GitHub Pages:**
+1. Go to repository Settings → Pages
+2. Source: "Deploy from a branch"
+3. Branch: `gh-pages`
+4. Folder: `/ (root)`
+
+**Benefits:**
+- ✅ **Simple**: Single command deployment
+- ✅ **Fast**: Direct git subtree push
+- ✅ **Clean**: Source code and build artifacts separated
+- ✅ **Reliable**: No CI/CD dependencies
 
 ### Project Structure
 

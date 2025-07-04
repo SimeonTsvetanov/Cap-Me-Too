@@ -5,20 +5,19 @@
 - [Overview](#overview)
 - [Prerequisites](#prerequisites)
 - [Local Development](#local-development)
-- [GitHub Pages Deployment](#github-pages-deployment)
+- [GitHub Pages Deployment (gh-pages branch)](#github-pages-deployment-gh-pages-branch)
 - [PWA Configuration](#pwa-configuration)
 - [Troubleshooting](#troubleshooting)
 - [Icon System](#icon-system)
-- [Static Export & Asset Copy for GitHub Pages](#static-export-asset-copy-for-github-pages)
 
 ## 🎯 Overview
 
-CapMeToo is a Next.js 14 application designed for static export and deployment on GitHub Pages. This guide covers the complete deployment process, including PWA configuration and icon system management.
+CapMeToo is a Next.js 14 application designed for static export and deployment on GitHub Pages using the **gh-pages branch method**. This approach uses `git subtree` to deploy the built static files to a separate branch, providing a clean separation between source code and deployment artifacts.
 
 ## ✅ Prerequisites
 
 - Node.js 18+
-- pnpm (recommended) or npm
+- npm (recommended)
 - Git
 - GitHub account
 - Google Gemini API key
@@ -28,7 +27,7 @@ CapMeToo is a Next.js 14 application designed for static export and deployment o
 ### 1. Install Dependencies
 
 ```bash
-pnpm install
+npm install
 ```
 
 ### 2. Set Up Environment Variables
@@ -42,93 +41,64 @@ GOOGLE_GEMINI_API_KEY=your_api_key_here
 ### 3. Run Development Server
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
 ### 4. Build for Production
 
 ```bash
-# Standard build
 npm run build
-
-# Build with GitHub Pages configuration
-$env:GITHUB_PAGES="true"; npm run build
 ```
 
-## 🌐 GitHub Pages Deployment
+## 🌐 GitHub Pages Deployment (gh-pages branch)
 
-### 1. Repository Setup
+### 🎯 **Simplified Deployment Method**
 
-- Repository must be public
-- Repository name: `Cap-Me-Too`
-- Branch: `main`
+This project uses a **single-command deployment** that:
 
-### 2. GitHub Actions Workflow
+1. Builds the Next.js application
+2. Creates a `.nojekyll` file for GitHub Pages
+3. Commits the build output to git
+4. Pushes to `gh-pages` branch using `git subtree`
 
-The deployment is automated via `.github/workflows/deploy.yml`:
+### 🚀 **Deploy Command**
 
-```yaml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: "npm"
-      - run: npm ci
-      - run: npm run build
-        env:
-          GITHUB_PAGES: true
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+```bash
+npm run deploy
 ```
 
-### 3. GitHub Pages Settings
+This single command does everything:
+
+```json
+{
+  "deploy": "npm run build && echo. > out/.nojekyll && git add -f out/ && git commit -m \"deploy: static export\" || echo \"No changes to commit\" && git subtree push --prefix out origin gh-pages"
+}
+```
+
+### 📋 **What This Does:**
+
+1. **`npm run build`** - Builds and exports static files to `out/`
+2. **`echo. > out/.nojekyll`** - Creates `.nojekyll` file (Windows compatible)
+3. **`git add -f out/`** - Forces add of build output (normally gitignored)
+4. **`git commit`** - Commits the build artifacts
+5. **`git subtree push`** - Pushes `out/` directory to `gh-pages` branch
+
+### 🔧 **GitHub Pages Settings**
 
 1. Go to repository Settings → Pages
-2. Source: "GitHub Actions"
-3. Branch: `main`
+2. Source: "Deploy from a branch"
+3. Branch: `gh-pages`
+4. Folder: `/ (root)`
 
 ## 📱 PWA Configuration
 
 ### Complete PWA Features
 
-- ✅ **Manifest**: Complete with all icon sizes and purposes
+- ✅ **Manifest**: Complete with 18 different icon sizes
 - ✅ **Service Worker**: Caching strategies and offline support
-- ✅ **Icons**: 18 different sizes for all platforms
+- ✅ **Icons**: Comprehensive icon set for all platforms
 - ✅ **Install Prompt**: Automatic PWA installability
 - ✅ **Offline Support**: Cached assets and API responses
-- ✅ **Background Sync**: Pending requests when back online
 
 ### PWA Manifest Features
 
@@ -141,21 +111,11 @@ jobs:
 - **Screenshots**: App store previews
 - **Protocol Handlers**: Custom URL scheme support
 
-### Service Worker Features
-
-- **Cache Strategies**:
-  - Static assets: Cache First
-  - API requests: Network First
-  - Other requests: Stale While Revalidate
-- **Background Sync**: Offline caption generation
-- **Push Notifications**: New caption alerts
-- **Cache Management**: Automatic cleanup of old caches
-
 ## 🎨 Icon System
 
 ### Complete Icon Set (18 Icons)
 
-The application includes a comprehensive icon set located in the `/Cap-Me-Too/` subfolder for GitHub Pages deployment:
+All icons are located in the `/public/` directory and automatically deployed:
 
 #### Browser Icons
 
@@ -187,211 +147,78 @@ The application includes a comprehensive icon set located in the `/Cap-Me-Too/` 
 - `monochrome-icon-192x192.png` (192x192) - System badges
 - `monochrome-icon-512x512.png` (512x512) - System badges high-res
 
-### Icon Generation
+## ⚙️ Technical Configuration
 
-Use the provided script to regenerate all icons:
+### Next.js Configuration
 
-```bash
-# On Linux/macOS
-bash scripts/generate-icons.sh
+The project uses static export with proper basePath for GitHub Pages:
 
-# On Windows (PowerShell)
-# Run individual sharp commands as needed
-sharp -i Cap-Me-Too/icon.svg -o Cap-Me-Too/favicon-16x16.png resize 16 16
+```javascript
+const nextConfig = {
+  output: "export",
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
+  basePath: "/Cap-Me-Too",
+  assetPrefix: "/Cap-Me-Too/",
+  images: {
+    unoptimized: true,
+  },
+  // ... other optimizations
+};
 ```
 
-### Icon Purposes
+### Key Benefits of This Approach
 
-- **any**: General use across all platforms
-- **maskable**: Android adaptive icons (safe zone)
-- **monochrome**: System integration and badges
+✅ **Simple**: Single command deployment
+✅ **Clean**: Source code and build artifacts separated
+✅ **Fast**: Direct git subtree push
+✅ **Reliable**: No complex CI/CD dependencies
+✅ **Standard**: Uses established git subtree method
 
-## 🔍 Troubleshooting
+## 🛠️ Troubleshooting
 
-### Icon System Issues (RESOLVED - January 2025)
+### Common Issues
 
-**Problem**: During deployment fixes, duplicate incorrect icons were created in wrong locations, breaking the existing icon workflow and causing favicon display issues.
+**Issue**: `touch` command not recognized on Windows
+**Solution**: We use `echo. > out/.nojekyll` for Windows compatibility
 
-**Symptoms**:
+**Issue**: Git subtree push fails
+**Solution**: Ensure you have push access to the repository
 
-- Wrong favicon showing (simple icon instead of brand icon)
-- Icons in root directory conflicting with `/public/` icons
-- Manifest.json pointing to non-existent icon files
+**Issue**: PWA assets not loading
+**Solution**: All paths use `/Cap-Me-Too/` basePath - verify this matches your repository name
 
-**Solution Applied**:
+**Issue**: Build fails
+**Solution**: Run `npm run build` separately to debug build issues
 
-- ✅ Removed duplicate icons from root directory
-- ✅ Generated proper PWA icons from `/Cap-Me-Too/icon.svg` using sharp-cli:
-  - `favicon.ico` (32x32) - Browser favicon
-  - `apple-touch-icon.png` (180x180) - iOS home screen icon
-  - `icon-192.png` (192x192) - PWA icon
-  - `icon-512.png` (512x512) - PWA icon (high-res)
-- ✅ Updated manifest.json with complete icon set (18 icons)
-- ✅ Updated layout.tsx with all icon references
-- ✅ Updated service worker with correct icon paths
-- ✅ Added legacy compatibility links
+### Build Verification
 
-### Common Issues and Solutions
+After deployment, verify:
 
-#### 1. Build Fails - "Cannot read properties of undefined (reading 'length')"
+1. Visit: `https://YOUR-USERNAME.github.io/Cap-Me-Too/`
+2. Check PWA installability
+3. Verify all icons load correctly
+4. Test offline functionality
 
-**Cause**: Webpack/Next.js build environment issue with WasmHash
-**Solution**:
+## 🎯 Why This Method?
 
-- Try building without environment variables first: `npm run build`
-- If successful, the issue is with the `GITHUB_PAGES=true` environment variable
-- The build will still work correctly for GitHub Pages deployment
+This deployment method was chosen because:
 
-#### 2. PWA Not Installing
+1. **Proven**: Git subtree is a standard method for GitHub Pages
+2. **Simple**: No complex CI/CD setup required
+3. **Fast**: Direct deployment without external services
+4. **Reliable**: Works consistently across different environments
+5. **Clean**: Keeps source code and build artifacts completely separate
 
-**Check**:
+## 🚀 Quick Deploy Checklist
 
-- Manifest.json is accessible at `/Cap-Me-Too/manifest.json`
-- Service worker is registered at `/Cap-Me-Too/sw.js`
-- All icon files exist and are properly referenced
-- HTTPS is enabled (required for PWA)
-
-**Solution**:
-
-- Verify all icon files are in `/Cap-Me-Too/` directory
-- Check browser console for 404 errors
-- Ensure GitHub Pages is serving from the correct branch
-
-#### 3. Icons Not Displaying
-
-**Check**:
-
-- Icon files exist in `/Cap-Me-Too/` directory
-- Manifest.json has correct paths with `/Cap-Me-Too/` prefix
-- Layout.tsx includes all necessary icon links
-
-**Solution**:
-
-- Regenerate icons using the provided script
-- Verify all paths in manifest.json and layout.tsx
-- Clear browser cache and reload
-
-#### 4. Service Worker Not Registering
-
-**Check**:
-
-- Service worker file exists at `/Cap-Me-Too/sw.js`
-- Registration script in layout.tsx is correct
-- No JavaScript errors in console
-
-**Solution**:
-
-- Verify service worker file exists and is valid
-- Check for syntax errors in sw.js
-- Ensure HTTPS is enabled
-
-### Performance Optimization
-
-#### Build Optimization
-
-- Static export reduces bundle size
-- Images are optimized during build
-- Service worker caches critical assets
-- Lazy loading for non-critical components
-
-#### PWA Performance
-
-- Cache-first strategy for static assets
-- Network-first for API requests
-- Background sync for offline functionality
-- Automatic cache cleanup
-
-## 🔧 Development Workflow
-
-### Making Changes
-
-1. Make code changes
-2. Test locally: `pnpm dev`
-3. Build locally: `npm run build`
-4. Commit and push to main branch
-5. GitHub Actions automatically deploys
-
-### Icon Updates
-
-1. Update `/public/icon.svg` (main source)
-2. Run icon generation script
-3. Test build and deployment
-4. Verify all icons display correctly
-
-### PWA Updates
-
-1. Update manifest.json if needed
-2. Update service worker for new caching strategies
-3. Test PWA functionality locally
-4. Deploy and verify installability
-
-## 📚 Additional Resources
-
-- [Next.js Static Export Documentation](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
-- [PWA Best Practices](https://web.dev/progressive-web-apps/)
-- [GitHub Pages Documentation](https://pages.github.com/)
-- [Web App Manifest Specification](https://developer.mozilla.org/en-US/docs/Web/Manifest)
-
-## 🎉 Success Criteria
-
-Your deployment is successful when:
-
-- ✅ Website loads at `https://username.github.io/Cap-Me-Too/`
-- ✅ PWA install prompt appears on mobile devices
-- ✅ All icons display correctly in browser tabs and home screens
-- ✅ Service worker registers without errors
-- ✅ Offline functionality works
-- ✅ Caption generation works with Gemini API
-- ✅ No console errors related to missing assets
-
-## 🛠️ Static Export & Asset Copy for GitHub Pages
-
-### Why do we place _everything_ inside `/Cap-Me-Too/`?
-
-GitHub Pages maps the request path **1-to-1** to a file inside the build artifact. When your URL is
-
-```
-https://username.github.io/Cap-Me-Too/favicon.ico
-```
-
-the platform will look for the file **_inside a folder named `Cap-Me-Too` at the root of the artifact_**. If the file lives elsewhere (for example directly in `out/favicon.ico`) the result is a 404. Therefore:
-
-1. `next.config.mjs` sets `basePath` **and** `assetPrefix` to `/Cap-Me-Too`.
-2. Next.js writes its HTML into `out/index.html` but still references every asset as `/Cap-Me-Too/...`.
-3. A tiny post-build script moves/copies the entire icon/manifest/service-worker set into `out/Cap-Me-Too/` so that the paths match.
-
-### Automated Post-Build Step
-
-The script responsible is `scripts/post-export-copy-assets.js`.
-
-• It runs automatically via the `postbuild` npm hook.  
-• It calculates the **target folder** from `NEXT_BASE_PATH` (defaults to `Cap-Me-Too`).  
-• It then creates the folder and copies the 18-icon set, `manifest.json`, and `sw.js` into it.
-
-Build & deploy lifecycle:
-
-```bash
-# === Local test ===
-pnpm run build               # Produces ./out
-npx serve ./out -l 5000      # http://localhost:5000/Cap-Me-Too/
-
-# === CI === (see .github/workflows/deploy.yml)
-1. Checkout code
-2. pnpm install
-3. GITHUB_PAGES=true NEXT_BASE_PATH="/Cap-Me-Too" pnpm run build
-4. Upload ./out as Pages artifact
-```
-
-With this layout every request (HTML, JS, icons, manifest, service-worker) resolves without redirection or duplication, in both production and preview environments.
-
-**Manual run:**
-
-```bash
-pnpm run postbuild
-```
+- [ ] `npm run build` - Verify build works locally
+- [ ] `npm run deploy` - Deploy to GitHub Pages
+- [ ] Check GitHub Pages settings (gh-pages branch)
+- [ ] Visit your site: `https://USERNAME.github.io/Cap-Me-Too/`
+- [ ] Test PWA installation
+- [ ] Verify all features work
 
 ---
 
-**Last Updated**: January 2025  
-**Version**: 1.1.0  
-**Status**: ✅ Production Ready
+_This approach has been tested and works reliably for Next.js PWA deployment to GitHub Pages._

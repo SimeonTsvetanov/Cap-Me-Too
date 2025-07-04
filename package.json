@@ -1,14 +1,14 @@
 {
-  "name": "my-v0-project",
+  "name": "cap-me-too",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://simeontsvetanov.github.io/Cap-Me-Too",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/post-export-copy-assets.js",
+    "build": "next build",
     "lint": "next lint",
     "start": "next start",
-    "export": "next export",
-    "deploy": "pnpm run build && touch out/.nojekyll && git add -f out/ && git commit -m 'deploy: static export' || echo 'No changes to commit' && git subtree push --prefix out origin gh-pages"
+    "deploy": "npm run build && echo. > out/.nojekyll && git add -f out/ && git commit -m \"deploy: static export\" || echo \"No changes to commit\" && git subtree push --prefix out origin gh-pages"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
