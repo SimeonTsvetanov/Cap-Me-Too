@@ -87,7 +87,7 @@ export function ImageUpload({ currentImage, onImageChange }: ImageUploadProps) {
     <div className="space-y-4">
       <h3 className="text-xl font-semibold text-center">Upload Your Photo</h3>
       <label
-        className="block border-2 border-dashed border-border hover:border-primary cursor-pointer transition-all duration-300 hover:bg-primary/5 hover:shadow-lg rounded-xl"
+        className="block border-2 border-dashed border-border hover:border-primary cursor-pointer transition-all duration-300 hover:bg-primary/5 hover:shadow-lg rounded-xl relative"
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
@@ -98,19 +98,24 @@ export function ImageUpload({ currentImage, onImageChange }: ImageUploadProps) {
           type="file"
           accept="image/*"
           onChange={handleImageUpload}
-          className="hidden"
+          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            opacity: 0,
+            cursor: "pointer",
+            zIndex: 10,
+          }}
         />
-        <div className="p-12 text-center space-y-4 w-full pointer-events-auto">
-          <div className="text-6xl animate-bounce pointer-events-auto">📸</div>
-          <div className="pointer-events-auto">
-            <h4 className="text-xl font-semibold mb-2 pointer-events-auto">
-              Drop your photo here
-            </h4>
-            <p className="text-muted-foreground pointer-events-auto">
-              or click to browse files
-            </p>
+        <div className="p-12 text-center space-y-4 w-full pointer-events-none select-none">
+          <div className="text-6xl animate-bounce">📸</div>
+          <div>
+            <h4 className="text-xl font-semibold mb-2">Drop your photo here</h4>
+            <p className="text-muted-foreground">or click to browse files</p>
           </div>
-          <div className="text-sm text-muted-foreground pointer-events-auto">
+          <div className="text-sm text-muted-foreground">
             Supports JPG, PNG, GIF up to 10MB
           </div>
         </div>

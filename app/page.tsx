@@ -94,7 +94,7 @@ export default function CapMeToo() {
   }
 
   return (
-    <div className="min-h-screen text-foreground transition-colors duration-300 flex flex-col">
+    <div className="min-h-screen flex flex-col">
       {process.env.NODE_ENV === "development" && <PerformanceMonitor />}
       <Header currentApiKey={apiKey} onApiKeyUpdate={handleApiKeySave} />
       <main className="pt-20 pb-0 min-h-screen">
