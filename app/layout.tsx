@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { AppProviders } from "@/components/providers/app-providers";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -275,6 +276,13 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${inter.variable} font-sans antialiased`}
       >
+        {/*
+          AnimatedBackground is rendered globally here to provide a consistent animated blurred background
+          on all pages, including light and dark mode. This ensures the effect is visible everywhere,
+          and prevents code duplication in individual screens. If you want to disable the background
+          for a specific page, use CSS to override or hide it.
+        */}
+        <AnimatedBackground />
         <AppProviders>{children}</AppProviders>
       </body>
     </html>

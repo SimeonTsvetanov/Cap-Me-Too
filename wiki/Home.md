@@ -59,7 +59,7 @@ CapMeToo is a **free, open-source Progressive Web App** that transforms your pho
 - 🌍 **Multi-Language** - Generate captions in 8 different languages
 - 📱 **Works Everywhere** - PWA that works on any device
 - ⚡ **Lightning Fast** - Optimized for speed and performance
-- 🎨 **Beautiful Design** - Modern, clean interface with dark/light themes
+- 🎨 **Beautiful Design** - Modern, clean interface with dark/light themes and a global animated blurred background for visual appeal
 
 ---
 
@@ -134,3 +134,11 @@ Join our growing community of content creators and developers:
 - All icons and static assets (favicon.ico, icon.svg, PWA icons) must be in the `/Cap-Me-Too/` subfolder for GitHub Pages deployment.
 - Do not place deployment icons in the root or public/ folders.
 - Example: `https://username.github.io/Cap-Me-Too/favicon.ico` is served from `out/Cap-Me-Too/favicon.ico`.
+
+## 🌈 Global Animated Background
+
+CapMeToo features a global animated blurred background (floating colored circles) that appears on all pages and overlays, in both light and dark mode. This effect is implemented as a single React component (`AnimatedBackground`) rendered globally in the root layout. It uses CSS-only animations for performance and is theme-aware.
+
+- **Location:** `components/ui/animated-background.tsx`
+- **How it works:** The background is rendered once in `app/layout.tsx` and should NOT be added to individual screens or modals. If you need to hide it for a specific page, use CSS overrides.
+- **Why:** This ensures a consistent, beautiful look across the entire app without code duplication or performance issues.

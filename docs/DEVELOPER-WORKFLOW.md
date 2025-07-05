@@ -393,6 +393,7 @@ onAction(state)
 }
 
 return (
+
 <div className="container-classes">
 <Button onClick={handleAction}>
 {prop1}
@@ -497,6 +498,14 @@ option2?: boolean
 - **Examples**: CaptionModal, SettingsModal
 - **Styling**: Backdrop blur, floating cards
 - **Dependencies**: UI components + BlurOverlay
+
+#### 5. Global Background Components
+
+- **Purpose**: Site-wide visual effects
+- **Examples**: AnimatedBackground (global blurred circles)
+- **Styling**: CSS animations, theme-aware colors
+- **Dependencies**: Rendered in root layout, no component dependencies
+- **Note**: The AnimatedBackground is rendered globally in `app/layout.tsx` to ensure consistency across all pages. Do not add it to individual screens to avoid duplication.
 
 ### Component Communication Patterns
 
@@ -775,7 +784,6 @@ blob: {
 }
 }
 }
-}
 \`\`\`
 
 #### 2. CSS Variables for Theming
@@ -790,32 +798,52 @@ blob: {
 }
 
 .dark {
---background: 222.2 84% 4.9%;
---foreground: 210 40% 98%;
---primary: 262.1 83.3% 57.8%;
-/_ ... dark theme variables _/
-}
-\`\`\`
-
-#### 3. Custom Utility Classes
-
-\`\`\`css
-/_ Custom utilities _/
-.glass-effect {
-background: rgba(255, 255, 255, 0.1);
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
+/_ ... _/
 }
 
-.no-border {
-border: none !important;
-}
+````
 
-.shadow-floating {
-box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-0 10px 10px -5px rgba(0, 0, 0, 0.04);
+#### 3. Global Animated Background
+
+The animated background is implemented as a global component rendered in the root layout:
+
+```typescript
+// app/layout.tsx
+import { AnimatedBackground } from "@/components/ui/animated-background"
+
+export default function RootLayout({ children }: Props) {
+  return (
+    <html>
+      <body>
+        {/* Global animated background - rendered once for all pages */}
+        <AnimatedBackground />
+        <AppProviders>{children}</AppProviders>
+      </body>
+    </html>
+  )
 }
-\`\`\`
+````
+
+**Implementation Details:**
+
+- **Location**: `components/ui/animated-background.tsx`
+- **Rendering**: Global in `app/layout.tsx` (not per-page)
+- **Animation**: CSS-only blob animation with staggered delays
+- **Theming**: Theme-aware colors (purple, pink, blue, yellow gradients)
+- **Performance**: Hardware-accelerated transforms, minimal re-renders
+- **Accessibility**: Purely decorative, no interaction required
+
+**Key Features:**
+
+- 3 animated gradient circles with different positions and timing
+- 7-second infinite animation cycle with 2s and 4s delays
+- Mix-blend-multiply for color interaction
+- Blur effects for soft, modern appearance
+- Responsive design that works on all screen sizes
+
+**Best Practice:**
+
+- Do NOT add the animated background to individual screens or modals. It is already present globally. If you need to hide it for a specific page, use CSS overrides.
 
 ### Component Styling Patterns
 

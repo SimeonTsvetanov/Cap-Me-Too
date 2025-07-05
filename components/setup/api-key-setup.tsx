@@ -1,14 +1,13 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent } from "@/components/ui/card"
-import { Logo } from "@/components/ui/logo"
-import { AnimatedBackground } from "@/components/ui/animated-background"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+import { Logo } from "@/components/ui/logo";
 
 interface ApiKeySetupProps {
-  onApiKeySave: (apiKey: string) => void
+  onApiKeySave: (apiKey: string) => void;
 }
 
 /**
@@ -23,30 +22,33 @@ interface ApiKeySetupProps {
  * - Fixed accessibility warnings
  */
 export function ApiKeySetup({ onApiKeySave }: ApiKeySetupProps) {
-  const [apiKey, setApiKey] = useState("")
-  const [showApiKey, setShowApiKey] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState("")
+  const [apiKey, setApiKey] = useState("");
+  const [showApiKey, setShowApiKey] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async () => {
     if (apiKey.trim().length > 10) {
-      setIsLoading(true)
-      setError("")
+      setIsLoading(true);
+      setError("");
       try {
         // Simulate validation delay
-        await new Promise((resolve) => setTimeout(resolve, 1000))
-        await onApiKeySave(apiKey.trim())
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await onApiKeySave(apiKey.trim());
       } catch (err) {
-        setError("Invalid API key. Please check and try again.")
+        setError("Invalid API key. Please check and try again.");
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
     }
-  }
+  };
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      <AnimatedBackground />
+      {/*
+        AnimatedBackground was previously rendered here, but is now global in the layout.
+        This avoids duplicate backgrounds and ensures consistency across all screens.
+      */}
 
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
         <Card className="w-full max-w-lg shadow-floating no-border backdrop-blur-sm bg-background/80">
@@ -59,7 +61,9 @@ export function ApiKeySetup({ onApiKeySave }: ApiKeySetupProps) {
                   CapMeToo
                 </h1>
               </div>
-              <p className="text-muted-foreground">AI-Powered Caption Generator</p>
+              <p className="text-muted-foreground">
+                AI-Powered Caption Generator
+              </p>
             </div>
 
             {/* Setup Content */}
@@ -67,7 +71,8 @@ export function ApiKeySetup({ onApiKeySave }: ApiKeySetupProps) {
               <div>
                 <h2 className="text-xl font-semibold mb-4">Get Started</h2>
                 <p className="text-muted-foreground mb-6">
-                  To use CapMeToo, you'll need a Google AI API key. Don't worry, it's free and takes just a few minutes!
+                  To use CapMeToo, you'll need a Google AI API key. Don't worry,
+                  it's free and takes just a few minutes!
                 </p>
               </div>
 
@@ -125,13 +130,18 @@ export function ApiKeySetup({ onApiKeySave }: ApiKeySetupProps) {
                         size="sm"
                         className="absolute right-1 top-1 h-8 w-8 p-0"
                         onClick={() => setShowApiKey(!showApiKey)}
-                        aria-label={showApiKey ? "Hide API key" : "Show API key"}
+                        aria-label={
+                          showApiKey ? "Hide API key" : "Show API key"
+                        }
                       >
                         {showApiKey ? "🙈" : "👁️"}
                       </Button>
                     </div>
                     {error && (
-                      <p id="api-key-error" className="text-sm text-destructive mt-2">
+                      <p
+                        id="api-key-error"
+                        className="text-sm text-destructive mt-2"
+                      >
                         {error}
                       </p>
                     )}
@@ -155,12 +165,13 @@ export function ApiKeySetup({ onApiKeySave }: ApiKeySetupProps) {
               </Button>
 
               <div className="text-center text-sm text-muted-foreground bg-muted/30 p-4 rounded-xl shadow-inner">
-                🔒 Your API key is stored securely on your device and never shared
+                🔒 Your API key is stored securely on your device and never
+                shared
               </div>
             </div>
           </CardContent>
         </Card>
       </div>
     </div>
-  )
+  );
 }
