@@ -2,7 +2,7 @@
   "name": "CapMe-Too - AI Caption Generator",
   "short_name": "CapMeToo",
   "description": "Generate amazing social media captions from your photos using AI.",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#6366f1",
