@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 interface ImageUploadProps {
-  currentImage: string | null
-  onImageChange: (image: string | null) => void
+  currentImage: string | null;
+  onImageChange: (image: string | null) => void;
 }
 
 /**
@@ -22,42 +22,42 @@ interface ImageUploadProps {
  * - Only dotted border for upload area (as requested)
  */
 export function ImageUpload({ currentImage, onImageChange }: ImageUploadProps) {
-  const fileInputRef = useRef<HTMLInputElement>(null)
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
+    const file = e.target.files?.[0];
     if (file && file.type.startsWith("image/")) {
-      const reader = new FileReader()
+      const reader = new FileReader();
       reader.onload = (e) => {
-        onImageChange(e.target?.result as string)
-      }
-      reader.readAsDataURL(file)
+        onImageChange(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
     }
-  }
+  };
 
   const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault()
-    e.currentTarget.classList.add("border-primary", "bg-primary/5")
-  }
+    e.preventDefault();
+    e.currentTarget.classList.add("border-primary", "bg-primary/5");
+  };
 
   const handleDragLeave = (e: React.DragEvent) => {
-    e.preventDefault()
-    e.currentTarget.classList.remove("border-primary", "bg-primary/5")
-  }
+    e.preventDefault();
+    e.currentTarget.classList.remove("border-primary", "bg-primary/5");
+  };
 
   const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault()
-    e.currentTarget.classList.remove("border-primary", "bg-primary/5")
+    e.preventDefault();
+    e.currentTarget.classList.remove("border-primary", "bg-primary/5");
 
-    const files = e.dataTransfer.files
+    const files = e.dataTransfer.files;
     if (files.length > 0 && files[0].type.startsWith("image/")) {
-      const reader = new FileReader()
+      const reader = new FileReader();
       reader.onload = (e) => {
-        onImageChange(e.target?.result as string)
-      }
-      reader.readAsDataURL(files[0])
+        onImageChange(e.target?.result as string);
+      };
+      reader.readAsDataURL(files[0]);
     }
-  }
+  };
 
   if (currentImage) {
     return (
@@ -80,18 +80,18 @@ export function ImageUpload({ currentImage, onImageChange }: ImageUploadProps) {
           </Button>
         </Card>
       </div>
-    )
+    );
   }
 
   return (
     <div className="space-y-4">
       <h3 className="text-xl font-semibold text-center">Upload Your Photo</h3>
-      <div
-        className="border-2 border-dashed border-border hover:border-primary cursor-pointer transition-all duration-300 hover:bg-primary/5 hover:shadow-lg rounded-xl"
-        onClick={() => fileInputRef.current?.click()}
+      <label
+        className="block border-2 border-dashed border-border hover:border-primary cursor-pointer transition-all duration-300 hover:bg-primary/5 hover:shadow-lg rounded-xl"
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
+        htmlFor="file-input"
       >
         <div className="p-12 text-center space-y-4">
           <div className="text-6xl animate-bounce">📸</div>
@@ -99,10 +99,19 @@ export function ImageUpload({ currentImage, onImageChange }: ImageUploadProps) {
             <h4 className="text-xl font-semibold mb-2">Drop your photo here</h4>
             <p className="text-muted-foreground">or click to browse files</p>
           </div>
-          <div className="text-sm text-muted-foreground">Supports JPG, PNG, GIF up to 10MB</div>
+          <div className="text-sm text-muted-foreground">
+            Supports JPG, PNG, GIF up to 10MB
+          </div>
         </div>
-      </div>
-      <input ref={fileInputRef} type="file" accept="image/*" onChange={handleImageUpload} className="hidden" />
+        <input
+          id="file-input"
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          onChange={handleImageUpload}
+          className="hidden"
+        />
+      </label>
     </div>
-  )
+  );
 }
