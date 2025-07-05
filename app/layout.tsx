@@ -255,33 +255,6 @@ export default function RootLayout({
           httpEquiv="Content-Security-Policy"
           content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://generativelanguage.googleapis.com;"
         />
-
-        {/* Service Worker Registration */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                  navigator.serviceWorker.register('sw.js').then(registration => {
-                    registration.onupdatefound = () => {
-                      const installingWorker = registration.installing;
-                      installingWorker.onstatechange = () => {
-                        if (installingWorker.state === 'installed') {
-                          if (navigator.serviceWorker.controller) {
-                            window.location.reload();
-                          }
-                        }
-                      };
-                    };
-                    console.log('SW registered: ', registration);
-                  }).catch(registrationError => {
-                    console.log('SW registration failed: ', registrationError);
-                  });
-                });
-              }
-            `,
-          }}
-        />
       </head>
       <body
         className={`${poppins.variable} ${inter.variable} font-sans antialiased`}
