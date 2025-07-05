@@ -93,7 +93,7 @@ jspm_packages/
 # Next.js build output
 .next
 # Note: For GitHub Pages static export, we need to commit the out/ directory
-# out
+out/
 
 # Nuxt.js build / generate output
 .nuxt
