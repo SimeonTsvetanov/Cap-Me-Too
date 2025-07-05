@@ -69,7 +69,7 @@ export default function CapMeToo() {
 
       <Header currentApiKey={apiKey} onApiKeyUpdate={handleApiKeySave} />
 
-      <main className="pt-20 pb-2 min-h-screen">
+      <main className="pt-20 pb-0 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-8">
             <MainApp

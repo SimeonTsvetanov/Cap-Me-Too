@@ -91,9 +91,15 @@ export function ImageUpload({ currentImage, onImageChange }: ImageUploadProps) {
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
-        htmlFor="file-input"
         style={{ width: "100%" }}
       >
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          onChange={handleImageUpload}
+          className="hidden"
+        />
         <div className="p-12 text-center space-y-4 w-full pointer-events-auto">
           <div className="text-6xl animate-bounce pointer-events-auto">📸</div>
           <div className="pointer-events-auto">
@@ -108,14 +114,6 @@ export function ImageUpload({ currentImage, onImageChange }: ImageUploadProps) {
             Supports JPG, PNG, GIF up to 10MB
           </div>
         </div>
-        <input
-          id="file-input"
-          ref={fileInputRef}
-          type="file"
-          accept="image/*"
-          onChange={handleImageUpload}
-          className="hidden"
-        />
       </label>
     </div>
   );

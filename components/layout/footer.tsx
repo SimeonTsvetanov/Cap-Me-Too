@@ -12,10 +12,10 @@ import { Logo } from "@/components/ui/logo";
 export function Footer() {
   return (
     <footer
-      className="bg-white/10 backdrop-blur-sm mt-auto"
-      style={{ background: "rgba(255,255,255,0.05)" }}
+      className="bg-transparent backdrop-blur-sm mt-auto"
+      style={{ background: "rgba(255,255,255,0.02)" }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="text-center space-y-4">
           <div className="flex items-center justify-center space-x-2">
             <Logo className="w-6 h-6" />
@@ -23,22 +23,17 @@ export function Footer() {
               CapMeToo
             </span>
           </div>
-          <div
-            className="flex items-center justify-center space-x-6 text-xs text-muted-foreground"
-            style={{ opacity: 0.7 }}
-          >
-            <span>© 2024 CapMeToo</span>
-            <span>•</span>
+          <div className="flex items-center justify-center space-x-6 text-xs text-muted-foreground opacity-70">
+            <span>© 2024</span>
             <a
-              href="https://buymeacoffee.com/simeontsvetanov"
+              href="https://www.buymeacoffee.com/simeonts"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary hover:text-primary/80 transition-colors font-medium"
+              className="hover:underline"
             >
-              ☕ Buy me a coffee
+              Buy me a coffee
             </a>
-            <span>•</span>
-            <span>v1.0.0</span>
+            <span>v.1</span>
           </div>
         </div>
       </div>
