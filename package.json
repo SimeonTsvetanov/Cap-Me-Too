@@ -7,6 +7,7 @@
     "build": "next build",
     "lint": "next lint",
     "start": "next start",
+    "postbuild": "cp public/404.html out/404.html",
     "gh-deploy": "git remote -v && git status && git add -A && git commit -m \"chore: save all changes before deploy\" || echo \"No changes to commit\" && git push origin main && pnpm build && gh-pages -d out --dotfiles"
   },
   "dependencies": {
