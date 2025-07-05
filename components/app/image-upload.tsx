@@ -94,13 +94,17 @@ export function ImageUpload({ currentImage, onImageChange }: ImageUploadProps) {
         htmlFor="file-input"
         style={{ width: "100%" }}
       >
-        <div className="p-12 text-center space-y-4 w-full">
-          <div className="text-6xl animate-bounce">📸</div>
-          <div>
-            <h4 className="text-xl font-semibold mb-2">Drop your photo here</h4>
-            <p className="text-muted-foreground">or click to browse files</p>
+        <div className="p-12 text-center space-y-4 w-full pointer-events-auto">
+          <div className="text-6xl animate-bounce pointer-events-auto">📸</div>
+          <div className="pointer-events-auto">
+            <h4 className="text-xl font-semibold mb-2 pointer-events-auto">
+              Drop your photo here
+            </h4>
+            <p className="text-muted-foreground pointer-events-auto">
+              or click to browse files
+            </p>
           </div>
-          <div className="text-sm text-muted-foreground">
+          <div className="text-sm text-muted-foreground pointer-events-auto">
             Supports JPG, PNG, GIF up to 10MB
           </div>
         </div>

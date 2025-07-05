@@ -69,16 +69,22 @@ export default function CapMeToo() {
 
       <Header currentApiKey={apiKey} onApiKeyUpdate={handleApiKeySave} />
 
-      <MainApp
-        currentImage={currentImage}
-        setCurrentImage={setCurrentImage}
-        selectedTopic={selectedTopic}
-        setSelectedTopic={setSelectedTopic}
-        selectedLanguage={selectedLanguage}
-        setSelectedLanguage={setSelectedLanguage}
-        onGenerateCaption={generateCaption}
-        isGenerating={isGenerating}
-      />
+      <main className="pt-20 pb-2 min-h-screen">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="space-y-8">
+            <MainApp
+              currentImage={currentImage}
+              setCurrentImage={setCurrentImage}
+              selectedTopic={selectedTopic}
+              setSelectedTopic={setSelectedTopic}
+              selectedLanguage={selectedLanguage}
+              setSelectedLanguage={setSelectedLanguage}
+              onGenerateCaption={generateCaption}
+              isGenerating={isGenerating}
+            />
+          </div>
+        </div>
+      </main>
 
       <Footer />
 

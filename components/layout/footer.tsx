@@ -1,4 +1,4 @@
-import { Logo } from "@/components/ui/logo"
+import { Logo } from "@/components/ui/logo";
 
 /**
  * Footer component with custom logo and Buy Me a Coffee link
@@ -11,7 +11,10 @@ import { Logo } from "@/components/ui/logo"
  */
 export function Footer() {
   return (
-    <footer className="bg-muted/30 mt-auto">
+    <footer
+      className="bg-white/10 backdrop-blur-sm mt-auto"
+      style={{ background: "rgba(255,255,255,0.05)" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center space-y-4">
           <div className="flex items-center justify-center space-x-2">
@@ -20,13 +23,10 @@ export function Footer() {
               CapMeToo
             </span>
           </div>
-
-          <p className="text-muted-foreground text-sm max-w-md mx-auto">
-            Transform your photos into engaging social media captions with the power of AI. Create, customize, and share
-            amazing content effortlessly.
-          </p>
-
-          <div className="flex items-center justify-center space-x-6 text-xs text-muted-foreground">
+          <div
+            className="flex items-center justify-center space-x-6 text-xs text-muted-foreground"
+            style={{ opacity: 0.7 }}
+          >
             <span>© 2024 CapMeToo</span>
             <span>•</span>
             <a
@@ -43,5 +43,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
