@@ -238,7 +238,7 @@ export default function RootLayout({
         <meta name="msapplication-config" content="browserconfig.xml" />
 
         {/* Security Headers for Static Export (replaces middleware) */}
-        <meta httpEquiv="X-Frame-Options" content="DENY" />
+        {/* <meta httpEquiv="X-Frame-Options" content="DENY" /> Removed: not effective on static hosting */}
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <meta
           httpEquiv="Referrer-Policy"

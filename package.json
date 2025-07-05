@@ -7,7 +7,7 @@
     "build": "next build",
     "lint": "next lint",
     "start": "next start",
-    "gh-deploy": "pnpm build && gh-pages -d out --dotfiles"
+    "gh-deploy": "git add . && git commit -m \"chore: save all changes before deploy\" || echo \"No changes to commit\" && git push origin main && pnpm build && gh-pages -d out --dotfiles"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Logo } from "@/components/ui/logo"
-import { HamburgerButton } from "@/components/ui/hamburger-button"
-import { SidebarMenu } from "@/components/ui/sidebar-menu"
+import { useState } from "react";
+import { Logo } from "@/components/ui/logo";
+import { HamburgerButton } from "@/components/ui/hamburger-button";
+import { SidebarMenu } from "@/components/ui/sidebar-menu";
 
 interface HeaderProps {
-  currentApiKey: string
-  onApiKeyUpdate: (apiKey: string) => void
+  currentApiKey: string;
+  onApiKeyUpdate: (apiKey: string) => void;
 }
 
 /**
@@ -19,12 +19,12 @@ interface HeaderProps {
  * - No separate settings modal needed
  */
 export function Header({ currentApiKey, onApiKeyUpdate }: HeaderProps) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-30 bg-background/70 backdrop-blur-md transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-0">
           <div className="flex items-center justify-between h-16 flex-row">
             {/* Logo Section */}
             <div className="flex items-center space-x-3">
@@ -48,5 +48,5 @@ export function Header({ currentApiKey, onApiKeyUpdate }: HeaderProps) {
         onApiKeyUpdate={onApiKeyUpdate}
       />
     </>
-  )
+  );
 }

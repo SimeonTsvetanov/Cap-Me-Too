@@ -52,13 +52,13 @@ pnpm build
 
 ## 🌐 GitHub Pages Deployment (gh-pages branch)
 
-### 🎯 **Simplified Deployment Method**
+### 🎯 **Automated Safe Deployment Method**
 
 This project uses a **single-command deployment** that:
 
-1. Builds the Next.js application
-2. Exports static files to the `out/` directory
-3. Publishes the `out/` directory to the `gh-pages` branch using the `gh-pages` npm package
+1. **Commits and pushes all your latest code to the `main` branch** (if there are any changes)
+2. **Builds the Next.js application**
+3. **Publishes the `out/` directory to the `gh-pages` branch using the `gh-pages` npm package**
 
 ### 🚀 **Deploy Command**
 
@@ -70,14 +70,17 @@ This single command does everything:
 
 ```json
 {
-  "gh-deploy": "pnpm build && gh-pages -d out --dotfiles"
+  "gh-deploy": "git add . && git commit -m 'chore: save all changes before deploy' || echo 'No changes to commit' && git push origin main && pnpm build && gh-pages -d out --dotfiles"
 }
 ```
 
 ### 📋 **What This Does:**
 
-1. **`pnpm build`** - Builds and exports static files to `out/`
-2. **`gh-pages -d out --dotfiles`** - Publishes the `out/` directory to the `gh-pages` branch, including dotfiles like `.nojekyll`
+1. **`git add .`** — Stages all changes in your working directory.
+2. **`git commit ... || echo ...`** — Commits changes, or prints a message if there's nothing to commit.
+3. **`git push origin main`** — Pushes your code to GitHub (`main` branch).
+4. **`pnpm build`** — Builds and exports static files to `out/`.
+5. **`gh-pages -d out --dotfiles`** — Publishes the `out/` directory to the `gh-pages` branch, including dotfiles like `.nojekyll`.
 
 ### 🔧 **GitHub Pages Settings**
 
@@ -85,6 +88,12 @@ This single command does everything:
 2. Source: "Deploy from a branch"
 3. Branch: `gh-pages`
 4. Folder: `/ (root)`
+
+### 🛡️ **Why This Is Important**
+
+- **Prevents lost work:** Your latest code is always saved in `main` before deploying.
+- **Safe for multi-device workflows:** You can pull from `main` on any computer and never lose changes.
+- **One command, zero risk:** No more forgetting to push your code before deploying.
 
 ## 📱 PWA Configuration
 
