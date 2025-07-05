@@ -22,8 +22,11 @@ import { PerformanceMonitor } from "@/components/ui/performance-monitor";
  * - No separate settings modal
  */
 export default function CapMeToo() {
-  const [isLoading, setIsLoading] = useState(true);
+  // Detect if running on the server (static export)
+  const isServer = typeof window === "undefined";
 
+  // Client-side state
+  const [isLoading, setIsLoading] = useState(true);
   const { apiKey, saveApiKey, isStorageReady, isApiKeyValid } = useStorage();
   const {
     currentImage,
@@ -54,11 +57,38 @@ export default function CapMeToo() {
     }
   };
 
+  // --- STATIC EXPORT: Always render main UI with demo/disabled state ---
+  if (isServer) {
+    return (
+      <div className="min-h-screen text-foreground transition-colors duration-300 flex flex-col">
+        <Header currentApiKey={"demo-key"} onApiKeyUpdate={() => {}} />
+        <main className="pt-20 pb-0 min-h-screen">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="space-y-8">
+              <MainApp
+                currentImage={null}
+                setCurrentImage={() => {}}
+                selectedTopic={null}
+                setSelectedTopic={() => {}}
+                selectedLanguage={"en"}
+                setSelectedLanguage={() => {}}
+                onGenerateCaption={() => {}}
+                isGenerating={false}
+              />
+            </div>
+          </div>
+        </main>
+        <Footer />
+        {/* No modals or API key logic in static export */}
+      </div>
+    );
+  }
+
+  // --- CLIENT: Normal logic ---
   if (isLoading) {
     return <LoadingScreen />;
   }
 
-  // Only show API key setup if no valid key is stored
   if (!apiKey || isApiKeyValid === false) {
     return <ApiKeySetup onApiKeySave={handleApiKeySave} />;
   }
@@ -66,9 +96,7 @@ export default function CapMeToo() {
   return (
     <div className="min-h-screen text-foreground transition-colors duration-300 flex flex-col">
       {process.env.NODE_ENV === "development" && <PerformanceMonitor />}
-
       <Header currentApiKey={apiKey} onApiKeyUpdate={handleApiKeySave} />
-
       <main className="pt-20 pb-0 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-8">
@@ -85,9 +113,7 @@ export default function CapMeToo() {
           </div>
         </div>
       </main>
-
       <Footer />
-
       <CaptionModal
         isOpen={showCaptionModal}
         onClose={() => setShowCaptionModal(false)}
