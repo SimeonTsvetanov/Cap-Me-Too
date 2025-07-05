@@ -1,16 +1,17 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { ThemeToggle } from "@/components/ui/theme-toggle"
-import { X, Key } from "lucide-react"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { X, Key } from "lucide-react";
+import { useTheme } from "next-themes";
 
 interface SidebarMenuProps {
-  isOpen: boolean
-  onClose: () => void
-  currentApiKey: string
-  onApiKeyUpdate: (apiKey: string) => void
+  isOpen: boolean;
+  onClose: () => void;
+  currentApiKey: string;
+  onApiKeyUpdate: (apiKey: string) => void;
 }
 
 /**
@@ -22,51 +23,57 @@ interface SidebarMenuProps {
  * - Proper accessibility and error handling
  * - Fixed console warnings
  */
-export function SidebarMenu({ isOpen, onClose, currentApiKey, onApiKeyUpdate }: SidebarMenuProps) {
-  const [newApiKey, setNewApiKey] = useState("")
-  const [showApiKey, setShowApiKey] = useState(false)
-  const [isUpdating, setIsUpdating] = useState(false)
+export function SidebarMenu({
+  isOpen,
+  onClose,
+  currentApiKey,
+  onApiKeyUpdate,
+}: SidebarMenuProps) {
+  const [newApiKey, setNewApiKey] = useState("");
+  const [showApiKey, setShowApiKey] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
-        onClose()
+        onClose();
       }
-    }
+    };
 
     const handleBodyScroll = () => {
       if (isOpen) {
-        document.body.style.overflow = "hidden"
+        document.body.style.overflow = "hidden";
       } else {
-        document.body.style.overflow = "unset"
+        document.body.style.overflow = "unset";
       }
-    }
+    };
 
-    document.addEventListener("keydown", handleEscape)
-    handleBodyScroll()
+    document.addEventListener("keydown", handleEscape);
+    handleBodyScroll();
 
     return () => {
-      document.removeEventListener("keydown", handleEscape)
-      document.body.style.overflow = "unset"
-    }
-  }, [isOpen, onClose])
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen, onClose]);
 
   const handleApiKeyUpdate = async () => {
     if (newApiKey.trim().length > 10) {
-      setIsUpdating(true)
+      setIsUpdating(true);
       try {
-        await onApiKeyUpdate(newApiKey.trim())
-        setNewApiKey("")
-        onClose()
+        await onApiKeyUpdate(newApiKey.trim());
+        setNewApiKey("");
+        onClose();
       } catch (error) {
-        console.error("Failed to update API key:", error)
+        console.error("Failed to update API key:", error);
       } finally {
-        setIsUpdating(false)
+        setIsUpdating(false);
       }
     }
-  }
+  };
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
     <>
@@ -109,12 +116,17 @@ export function SidebarMenu({ isOpen, onClose, currentApiKey, onApiKeyUpdate }: 
           {/* Menu Items */}
           <div className="flex-1 p-6 space-y-6">
             {/* Theme Toggle */}
-            <div className="flex items-center justify-between p-4 hover:bg-accent/30 rounded-xl transition-colors group">
+            <div
+              className="flex items-center justify-between p-4 hover:bg-accent/30 rounded-xl transition-colors group cursor-pointer"
+              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            >
               <div className="flex items-center space-x-3">
                 <span className="text-xl">🎨</span>
                 <div>
                   <span className="font-medium block">Theme</span>
-                  <span className="text-sm text-muted-foreground">Switch between light and dark mode</span>
+                  <span className="text-sm text-muted-foreground">
+                    Switch between light and dark mode
+                  </span>
                 </div>
               </div>
               <ThemeToggle />
@@ -126,7 +138,9 @@ export function SidebarMenu({ isOpen, onClose, currentApiKey, onApiKeyUpdate }: 
                 <Key className="h-5 w-5 text-primary" />
                 <div>
                   <span className="font-medium block">API Key</span>
-                  <span className="text-sm text-muted-foreground">Manage your Google AI API key</span>
+                  <span className="text-sm text-muted-foreground">
+                    Manage your Google AI API key
+                  </span>
                 </div>
               </div>
 
@@ -154,7 +168,8 @@ export function SidebarMenu({ isOpen, onClose, currentApiKey, onApiKeyUpdate }: 
 
                 {currentApiKey && (
                   <p className="text-xs text-muted-foreground">
-                    Current: {currentApiKey.slice(0, 8)}...{currentApiKey.slice(-4)}
+                    Current: {currentApiKey.slice(0, 8)}...
+                    {currentApiKey.slice(-4)}
                   </p>
                 )}
 
@@ -191,7 +206,9 @@ export function SidebarMenu({ isOpen, onClose, currentApiKey, onApiKeyUpdate }: 
                 <span className="text-xl mr-3">☕</span>
                 <div className="text-left">
                   <span className="font-medium block">Buy me a coffee</span>
-                  <span className="text-sm text-muted-foreground">Support the development</span>
+                  <span className="text-sm text-muted-foreground">
+                    Support the development
+                  </span>
                 </div>
               </a>
             </Button>
@@ -202,11 +219,13 @@ export function SidebarMenu({ isOpen, onClose, currentApiKey, onApiKeyUpdate }: 
             <div className="text-center space-y-2">
               <p className="text-sm font-medium">CapMeToo</p>
               <p className="text-xs text-muted-foreground">Version 1.0.0</p>
-              <p className="text-xs text-muted-foreground">AI-Powered Caption Generator</p>
+              <p className="text-xs text-muted-foreground">
+                AI-Powered Caption Generator
+              </p>
             </div>
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }
