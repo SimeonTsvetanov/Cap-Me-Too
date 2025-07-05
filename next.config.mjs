@@ -1,10 +1,13 @@
 /** @type {import('next').NextConfig} */
+
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
   output: "export",
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
-  basePath: "/Cap-Me-Too",
-  assetPrefix: "/Cap-Me-Too/",
+  basePath: isProd ? "/Cap-Me-Too" : "",
+  assetPrefix: isProd ? "/Cap-Me-Too/" : "",
   eslint: {
     ignoreDuringBuilds: true,
   },

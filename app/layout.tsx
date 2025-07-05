@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   title: "CapMeToo - AI Caption Generator",
   description:
     "Generate amazing social media captions from your photos using AI. Transform your images into engaging content with the power of artificial intelligence.",
-  manifest: "/Cap-Me-Too/manifest.json",
+  manifest: "manifest.json",
   metadataBase: new URL("https://simeontsvetanov.github.io/Cap-Me-Too/"),
   appleWebApp: {
     capable: true,
@@ -37,17 +37,17 @@ export const metadata: Metadata = {
     title: "CapMeToo",
     startupImage: [
       {
-        url: "/Cap-Me-Too/apple-touch-icon.png",
+        url: "/apple-touch-icon.png",
         media:
           "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)",
       },
       {
-        url: "/Cap-Me-Too/apple-touch-icon.png",
+        url: "/apple-touch-icon.png",
         media:
           "(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)",
       },
       {
-        url: "/Cap-Me-Too/apple-touch-icon.png",
+        url: "/apple-touch-icon.png",
         media:
           "(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)",
       },
@@ -55,42 +55,42 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/Cap-Me-Too/favicon.ico", sizes: "any" },
-      { url: "/Cap-Me-Too/icon.svg", sizes: "any", type: "image/svg+xml" },
+      { url: "favicon.ico", sizes: "any" },
+      { url: "icon.svg", sizes: "any", type: "image/svg+xml" },
       {
-        url: "/Cap-Me-Too/favicon-16x16.png",
+        url: "favicon-16x16.png",
         sizes: "16x16",
         type: "image/png",
       },
       {
-        url: "/Cap-Me-Too/favicon-32x32.png",
+        url: "favicon-32x32.png",
         sizes: "32x32",
         type: "image/png",
       },
       {
-        url: "/Cap-Me-Too/favicon-48x48.png",
+        url: "favicon-48x48.png",
         sizes: "48x48",
         type: "image/png",
       },
       {
-        url: "/Cap-Me-Too/android-chrome-192x192.png",
+        url: "android-chrome-192x192.png",
         sizes: "192x192",
         type: "image/png",
       },
       {
-        url: "/Cap-Me-Too/android-chrome-512x512.png",
+        url: "android-chrome-512x512.png",
         sizes: "512x512",
         type: "image/png",
       },
     ],
     apple: [
       {
-        url: "/Cap-Me-Too/apple-touch-icon-152x152.png",
+        url: "apple-touch-icon-152x152.png",
         sizes: "152x152",
         type: "image/png",
       },
       {
-        url: "/Cap-Me-Too/apple-touch-icon.png",
+        url: "apple-touch-icon.png",
         sizes: "180x180",
         type: "image/png",
       },
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
     other: [
       {
         rel: "mask-icon",
-        url: "/Cap-Me-Too/icon.svg",
+        url: "icon.svg",
         color: "#6366f1",
       },
     ],
@@ -124,7 +124,7 @@ export const metadata: Metadata = {
     siteName: "CapMeToo",
     images: [
       {
-        url: "/Cap-Me-Too/android-chrome-512x512.png",
+        url: "/android-chrome-512x512.png",
         width: 512,
         height: 512,
         alt: "CapMeToo Logo",
@@ -136,7 +136,7 @@ export const metadata: Metadata = {
     title: "CapMeToo - AI Caption Generator",
     description:
       "Generate amazing social media captions from your photos using AI. Transform your images into engaging content with the power of artificial intelligence.",
-    images: ["/Cap-Me-Too/android-chrome-512x512.png"],
+    images: ["/android-chrome-512x512.png"],
   },
   generator: "Next.js",
   keywords: [
@@ -173,62 +173,69 @@ export default function RootLayout({
         />
 
         {/* Complete Favicon Set */}
-        <link rel="icon" href="/Cap-Me-Too/favicon.ico" sizes="any" />
-        <link rel="icon" href="/Cap-Me-Too/icon.svg" type="image/svg+xml" />
+        <link rel="icon" href="favicon.ico" sizes="any" />
+        <link rel="icon" href="icon.svg" type="image/svg+xml" />
         <link
           rel="icon"
-          href="/Cap-Me-Too/favicon-16x16.png"
+          href="favicon-16x16.png"
           sizes="16x16"
           type="image/png"
         />
         <link
           rel="icon"
-          href="/Cap-Me-Too/favicon-32x32.png"
+          href="favicon-32x32.png"
           sizes="32x32"
           type="image/png"
         />
         <link
           rel="icon"
-          href="/Cap-Me-Too/favicon-48x48.png"
+          href="favicon-48x48.png"
           sizes="48x48"
           type="image/png"
         />
 
         {/* Apple Touch Icons */}
-        <link rel="apple-touch-icon" href="/Cap-Me-Too/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
         <link
           rel="apple-touch-icon"
-          href="/Cap-Me-Too/apple-touch-icon-152x152.png"
           sizes="152x152"
-        />
-
-        {/* Android Chrome Icons */}
-        <link
-          rel="icon"
-          href="/Cap-Me-Too/android-chrome-192x192.png"
-          sizes="192x192"
-          type="image/png"
+          href="apple-touch-icon-152x152.png"
         />
         <link
-          rel="icon"
-          href="/Cap-Me-Too/android-chrome-512x512.png"
-          sizes="512x512"
-          type="image/png"
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="apple-touch-icon.png"
         />
 
-        {/* PWA Meta Tags */}
-        <meta name="format-detection" content="telephone=no" />
+        {/* Android/Chrome Icons */}
+        <link rel="icon" sizes="192x192" href="android-chrome-192x192.png" />
+        <link rel="icon" sizes="512x512" href="android-chrome-512x512.png" />
+
+        {/* Mask Icon */}
+        <link rel="mask-icon" href="icon.svg" color="#6366f1" />
+
+        {/* PWA Manifest */}
+        <link rel="manifest" href="manifest.json" />
+
+        {/* Theme Color */}
+        <meta name="theme-color" content="#6366f1" />
+
+        {/* Microsoft Tiles */}
+        <meta
+          name="msapplication-TileImage"
+          content="android-chrome-512x512.png"
+        />
+        <meta name="msapplication-TileColor" content="#6366f1" />
+
+        {/* Other Meta Tags */}
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="CapMeToo" />
         <meta name="application-name" content="CapMeToo" />
-        <meta name="msapplication-TileColor" content="#6366f1" />
-        <meta
-          name="msapplication-TileImage"
-          content="/Cap-Me-Too/android-chrome-192x192.png"
-        />
-        <meta name="theme-color" content="#6366f1" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="msapplication-config" content="browserconfig.xml" />
 
         {/* Security Headers for Static Export (replaces middleware) */}
         <meta httpEquiv="X-Frame-Options" content="DENY" />
@@ -253,14 +260,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               if ('serviceWorker' in navigator) {
-                window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/Cap-Me-Too/sw.js')
-                    .then(function(registration) {
-                      console.log('SW registered: ', registration);
-                    })
-                    .catch(function(registrationError) {
-                      console.log('SW registration failed: ', registrationError);
-                    });
+                window.addEventListener('load', () => {
+                  navigator.serviceWorker.register('sw.js').then(registration => {
+                    console.log('SW registered: ', registration);
+                  }).catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                  });
                 });
               }
             `,

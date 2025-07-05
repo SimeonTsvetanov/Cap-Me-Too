@@ -2,16 +2,15 @@
   "name": "cap-me-too",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://simeontsvetanov.github.io/Cap-Me-Too",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "lint": "next lint",
     "start": "next start",
-    "deploy": "npm run build && echo. > out/.nojekyll && git add -f out/ && git commit -m \"deploy: static export\" || echo \"No changes to commit\" && git subtree push --prefix out origin gh-pages"
+    "gh-deploy": "pnpm build && gh-pages -d out --dotfiles"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.9.1",
+    "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "1.2.2",
     "@radix-ui/react-alert-dialog": "1.1.4",
     "@radix-ui/react-aspect-ratio": "1.1.1",
@@ -65,6 +64,7 @@
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5"
