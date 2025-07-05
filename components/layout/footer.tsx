@@ -13,7 +13,7 @@ export function Footer() {
   return (
     <footer
       className="bg-transparent backdrop-blur-sm mt-auto"
-      style={{ background: "transparent" }}
+      style={{ background: "transparent", backgroundColor: "transparent" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="text-center space-y-4">

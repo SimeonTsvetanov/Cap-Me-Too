@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { ImageUpload } from "@/components/app/image-upload"
-import { TopicLanguageSelector } from "@/components/app/topic-language-selector"
-import { GenerateButton } from "@/components/app/generate-button"
+import { ImageUpload } from "@/components/app/image-upload";
+import { TopicLanguageSelector } from "@/components/app/topic-language-selector";
+import { GenerateButton } from "@/components/app/generate-button";
 
 interface MainAppProps {
-  currentImage: string | null
-  setCurrentImage: (image: string | null) => void
-  selectedTopic: string
-  setSelectedTopic: (topic: string) => void
-  selectedLanguage: string
-  setSelectedLanguage: (language: string) => void
-  onGenerateCaption: () => void
-  isGenerating: boolean
+  currentImage: string | null;
+  setCurrentImage: (image: string | null) => void;
+  selectedTopic: string;
+  setSelectedTopic: (topic: string) => void;
+  selectedLanguage: string;
+  setSelectedLanguage: (language: string) => void;
+  onGenerateCaption: () => void;
+  isGenerating: boolean;
 }
 
 /**
@@ -45,13 +45,16 @@ export function MainApp({
               Transform Your Photos
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Upload your photo, choose a style and language, then let AI create the perfect social media caption for
-              you.
+              Upload your photo, choose a style and language, then let AI create
+              the perfect social media caption for you.
             </p>
           </div>
 
           {/* Image Upload Section */}
-          <ImageUpload currentImage={currentImage} onImageChange={setCurrentImage} />
+          <ImageUpload
+            currentImage={currentImage}
+            onImageChange={setCurrentImage}
+          />
 
           {/* Topic and Language Selection - Under Image Picker */}
           <TopicLanguageSelector
@@ -62,7 +65,13 @@ export function MainApp({
           />
 
           {/* Generate Button */}
-          <div className="text-center">
+          <div
+            className="text-center bg-transparent"
+            style={{
+              background: "transparent",
+              backgroundColor: "transparent",
+            }}
+          >
             <GenerateButton
               onClick={onGenerateCaption}
               disabled={!currentImage || isGenerating}
@@ -72,5 +81,5 @@ export function MainApp({
         </div>
       </div>
     </main>
-  )
+  );
 }
