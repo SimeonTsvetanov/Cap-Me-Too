@@ -92,8 +92,9 @@ export function ImageUpload({ currentImage, onImageChange }: ImageUploadProps) {
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
         htmlFor="file-input"
+        style={{ width: "100%" }}
       >
-        <div className="p-12 text-center space-y-4">
+        <div className="p-12 text-center space-y-4 w-full">
           <div className="text-6xl animate-bounce">📸</div>
           <div>
             <h4 className="text-xl font-semibold mb-2">Drop your photo here</h4>

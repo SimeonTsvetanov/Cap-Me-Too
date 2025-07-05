@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
-import { ApiKeySetup } from "@/components/setup/api-key-setup"
-import { MainApp } from "@/components/app/main-app"
-import { CaptionModal } from "@/components/modals/caption-modal"
-import { LoadingScreen } from "@/components/ui/loading-screen"
-import { useStorage } from "@/hooks/use-storage"
-import { useCaption } from "@/hooks/use-caption"
-import { PerformanceMonitor } from "@/components/ui/performance-monitor"
+import { useState, useEffect } from "react";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { ApiKeySetup } from "@/components/setup/api-key-setup";
+import { MainApp } from "@/components/app/main-app";
+import { CaptionModal } from "@/components/modals/caption-modal";
+import { LoadingScreen } from "@/components/ui/loading-screen";
+import { useStorage } from "@/hooks/use-storage";
+import { useCaption } from "@/hooks/use-caption";
+import { PerformanceMonitor } from "@/components/ui/performance-monitor";
 
 /**
  * Main application component with simplified API key handling
@@ -22,9 +22,9 @@ import { PerformanceMonitor } from "@/components/ui/performance-monitor"
  * - No separate settings modal
  */
 export default function CapMeToo() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
-  const { apiKey, saveApiKey, isStorageReady, isApiKeyValid } = useStorage()
+  const { apiKey, saveApiKey, isStorageReady, isApiKeyValid } = useStorage();
   const {
     currentImage,
     setCurrentImage,
@@ -38,33 +38,33 @@ export default function CapMeToo() {
     setShowCaptionModal,
     generateCaption,
     copyCaption,
-  } = useCaption(apiKey)
+  } = useCaption(apiKey);
 
   useEffect(() => {
     if (isStorageReady) {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }, [isStorageReady])
+  }, [isStorageReady]);
 
   const handleApiKeySave = async (newApiKey: string) => {
     try {
-      await saveApiKey(newApiKey)
+      await saveApiKey(newApiKey);
     } catch (error) {
-      throw new Error("Invalid API key. Please check and try again.")
+      throw new Error("Invalid API key. Please check and try again.");
     }
-  }
+  };
 
   if (isLoading) {
-    return <LoadingScreen />
+    return <LoadingScreen />;
   }
 
   // Only show API key setup if no valid key is stored
   if (!apiKey || isApiKeyValid === false) {
-    return <ApiKeySetup onApiKeySave={handleApiKeySave} />
+    return <ApiKeySetup onApiKeySave={handleApiKeySave} />;
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground transition-colors duration-300 flex flex-col">
+    <div className="min-h-screen text-foreground transition-colors duration-300 flex flex-col">
       {process.env.NODE_ENV === "development" && <PerformanceMonitor />}
 
       <Header currentApiKey={apiKey} onApiKeyUpdate={handleApiKeySave} />
@@ -91,5 +91,5 @@ export default function CapMeToo() {
         isGenerating={isGenerating}
       />
     </div>
-  )
+  );
 }
