@@ -1,16 +1,26 @@
 // This is a basic service worker that enables offline functionality.
 const CACHE_NAME = "capmetoo-cache-v1";
 const urlsToCache = [
-  "/",
-  "/manifest.json",
-  // Add other important assets here, e.g., CSS, JS, key images
+  ".",
+  "manifest.json",
+  "favicon.ico",
+  "favicon-16x16.png",
+  "favicon-32x32.png",
+  "favicon-48x48.png",
+  "icon-192.png",
+  "icon-512.png",
+  "android-chrome-192x192.png",
+  "android-chrome-512x512.png",
+  // Add more as needed
 ];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       console.log("Opened cache");
-      return cache.addAll(urlsToCache);
+      return cache.addAll(urlsToCache).catch((err) => {
+        console.warn("Some assets failed to cache:", err);
+      });
     })
   );
 });
