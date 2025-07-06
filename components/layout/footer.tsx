@@ -16,7 +16,7 @@ export function Footer() {
         <div className="flex items-center justify-center space-x-6 text-xs text-muted-foreground opacity-70">
           <span>© 2024</span>
           <a
-            href="https://www.buymeacoffee.com/simeonts"
+            href="https://buymeacoffee.com/simeontsvetanov"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:underline hover:opacity-100 transition-opacity"

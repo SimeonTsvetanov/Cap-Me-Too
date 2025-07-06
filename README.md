@@ -12,11 +12,11 @@
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC.svg)](https://tailwindcss.com/)
   [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-  [![Deploy](https://github.com/YOUR-USERNAME/capmetoo/actions/workflows/deploy.yml/badge.svg)](https://github.com/YOUR-USERNAME/capmetoo/actions/workflows/deploy.yml)
-  [![Issues](https://img.shields.io/github/issues/YOUR-USERNAME/capmetoo.svg)](https://github.com/YOUR-USERNAME/capmetoo/issues)
-  [![Stars](https://img.shields.io/github/stars/YOUR-USERNAME/capmetoo.svg)](https://github.com/YOUR-USERNAME/capmetoo/stargazers)
+  [![Deploy](https://github.com/SimeonTsvetanov/Cap-Me-Too/actions/workflows/deploy.yml/badge.svg)](https://github.com/SimeonTsvetanov/Cap-Me-Too/actions/workflows/deploy.yml)
+  [![Issues](https://img.shields.io/github/issues/SimeonTsvetanov/Cap-Me-Too.svg)](https://github.com/SimeonTsvetanov/Cap-Me-Too/issues)
+  [![Stars](https://img.shields.io/github/stars/SimeonTsvetanov/Cap-Me-Too.svg)](https://github.com/SimeonTsvetanov/Cap-Me-Too/stargazers)
   
-  [🚀 Live Demo](https://YOUR-USERNAME.github.io/capmetoo) • [📖 Documentation](docs/) • [🐛 Report Bug](https://github.com/YOUR-USERNAME/capmetoo/issues/new?template=bug_report.md) • [✨ Request Feature](https://github.com/YOUR-USERNAME/capmetoo/issues/new?template=feature_request.md) • [☕ Support](https://buymeacoffee.com/simeontsvetanov)
+  [🚀 Live Demo](https://simeontsvetanov.github.io/Cap-Me-Too) • [📖 Documentation](docs/) • [🐛 Report Bug](https://github.com/SimeonTsvetanov/Cap-Me-Too/issues/new?template=bug_report.md) • [✨ Request Feature](https://github.com/SimeonTsvetanov/Cap-Me-Too/issues/new?template=feature_request.md) • [☕ Support](https://buymeacoffee.com/simeontsvetanov)
 </div>
 
 ---
@@ -74,7 +74,7 @@ CapMeToo is a **free, open-source Progressive Web App** that uses Google's Gemin
 
 ### Option 1: Use Online (Recommended)
 
-1. **Visit** [CapMeToo](https://YOUR-USERNAME.github.io/capmetoo)
+1. **Visit** [CapMeToo](https://simeontsvetanov.github.io/Cap-Me-Too)
 2. **Get API Key** - Free [Google AI API key](https://aistudio.google.com/app/apikey)
 3. **Upload & Generate** - Upload a photo and start creating captions!
 
@@ -84,8 +84,8 @@ CapMeToo is a **free, open-source Progressive Web App** that uses Google's Gemin
 
 # Clone the repository
 
-git clone https://github.com/YOUR-USERNAME/capmetoo.git
-cd capmetoo
+git clone https://github.com/SimeonTsvetanov/Cap-Me-Too.git
+cd Cap-Me-Too
 
 # Install dependencies
 
@@ -185,22 +185,25 @@ CapMeToo is designed mobile-first with special attention to touch interfaces:
 This project uses a **single-command deployment** to GitHub Pages:
 
 ```bash
-npm run deploy
+pnpm run gh-deploy
 ```
 
 This command:
+
 1. **Builds** the Next.js application as static files
 2. **Creates** `.nojekyll` file for GitHub Pages compatibility
 3. **Commits** build output to git
 4. **Deploys** to `gh-pages` branch using `git subtree`
 
 **Setup GitHub Pages:**
+
 1. Go to repository Settings → Pages
 2. Source: "Deploy from a branch"
 3. Branch: `gh-pages`
 4. Folder: `/ (root)`
 
 **Benefits:**
+
 - ✅ **Simple**: Single command deployment
 - ✅ **Fast**: Direct git subtree push
 - ✅ **Clean**: Source code and build artifacts separated
@@ -235,11 +238,11 @@ We welcome contributions! Here's how you can help:
 
 ### 🐛 **Report Bugs**
 
-Found a bug? [Create a bug report](https://github.com/YOUR-USERNAME/capmetoo/issues/new?template=bug_report.md)
+Found a bug? [Create a bug report](https://github.com/SimeonTsvetanov/Cap-Me-Too/issues/new?template=bug_report.md)
 
 ### ✨ **Request Features**
 
-Have an idea? [Request a feature](https://github.com/YOUR-USERNAME/capmetoo/issues/new?template=feature_request.md)
+Have an idea? [Request a feature](https://github.com/SimeonTsvetanov/Cap-Me-Too/issues/new?template=feature_request.md)
 
 ### 💻 **Code Contributions**
 
@@ -264,7 +267,7 @@ Help us support more languages! Check our [translation guide](docs/CONTRIBUTING.
 
 ## 📊 Project Stats
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=YOUR-USERNAME&repo=capmetoo&show_icons=true&theme=radical)
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=SimeonTsvetanov&repo=Cap-Me-Too&show_icons=true&theme=radical)
 
 ---
 
@@ -282,8 +285,8 @@ Help us support more languages! Check our [translation guide](docs/CONTRIBUTING.
 
 # Clone and install
 
-git clone https://github.com/YOUR-USERNAME/capmetoo.git
-cd capmetoo
+git clone https://github.com/SimeonTsvetanov/Cap-Me-Too.git
+cd Cap-Me-Too
 npm install
 
 # Start development server
@@ -350,10 +353,10 @@ If you find CapMeToo helpful, consider supporting the project:
 
 ## 📞 Contact & Support
 
-- 🌐 **Website**: [CapMeToo](https://YOUR-USERNAME.github.io/capmetoo)
-- 📧 **Email**: [Create an issue](https://github.com/YOUR-USERNAME/capmetoo/issues/new)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/YOUR-USERNAME/capmetoo/discussions)
-- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/YOUR-USERNAME/capmetoo/issues)
+- 🌐 **Website**: [CapMeToo](https://simeontsvetanov.github.io/Cap-Me-Too)
+- 📧 **Email**: [Create an issue](https://github.com/SimeonTsvetanov/Cap-Me-Too/issues/new)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/SimeonTsvetanov/Cap-Me-Too/discussions)
+- 🐛 **Bug Reports**: [GitHub Issues](https://github.com/SimeonTsvetanov/Cap-Me-Too/issues)
 - ☕ **Support**: [Buy Me a Coffee](https://buymeacoffee.com/simeontsvetanov)
 
 ---
@@ -361,12 +364,12 @@ If you find CapMeToo helpful, consider supporting the project:
 <div align="center">
   <p>Made with ❤️ for content creators worldwide</p>
   <p>
-    <a href="https://YOUR-USERNAME.github.io/capmetoo">Try CapMeToo</a> •
+    <a href="https://simeontsvetanov.github.io/Cap-Me-Too">Try CapMeToo</a> •
     <a href="docs/">Documentation</a> •
     <a href="https://buymeacoffee.com/simeontsvetanov">Support</a>
   </p>
   
   ### ⭐ Star this repository if you find it helpful!
   
-  ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=YOUR-USERNAME.capmetoo)
+  ![Visitors](https://visitor-badge.laobi.icu/badge?page_id=SimeonTsvetanov.Cap-Me-Too)
 </div>

@@ -1,7 +1,7 @@
 # 🏠 CapMeToo Wiki - Home
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/YOUR-USERNAME/capmetoo/main/public/icon-192x192.png" alt="CapMeToo Logo" width="120" height="120">
+  <img src="https://raw.githubusercontent.com/SimeonTsvetanov/Cap-Me-Too/main/public/icon-192x192.png" alt="CapMeToo Logo" width="120" height="120">
   
   # Welcome to CapMeToo Wiki! ✨
   
@@ -94,7 +94,7 @@ CapMeToo is a **free, open-source Progressive Web App** that transforms your pho
 
 ## 🚀 Quick Start
 
-1. **Visit** [CapMeToo](https://YOUR-USERNAME.github.io/capmetoo)
+1. **Visit** [CapMeToo](https://simeontsvetanov.github.io/Cap-Me-Too)
 2. **Get API Key** - Free [Google AI API key](https://aistudio.google.com/app/apikey)
 3. **Upload & Generate** - Upload a photo and start creating captions!
 
@@ -102,9 +102,9 @@ CapMeToo is a **free, open-source Progressive Web App** that transforms your pho
 
 ## 📞 Need Help?
 
-- 🐛 **Found a Bug?** → [Report it here](https://github.com/YOUR-USERNAME/capmetoo/issues/new?template=bug_report.md)
-- ✨ **Feature Request?** → [Suggest it here](https://github.com/YOUR-USERNAME/capmetoo/issues/new?template=feature_request.md)
-- ❓ **Have Questions?** → [Ask in Discussions](https://github.com/YOUR-USERNAME/capmetoo/discussions)
+- 🐛 **Found a Bug?** → [Report it here](https://github.com/SimeonTsvetanov/Cap-Me-Too/issues/new?template=bug_report.md)
+- ✨ **Feature Request?** → [Suggest it here](https://github.com/SimeonTsvetanov/Cap-Me-Too/issues/new?template=feature_request.md)
+- ❓ **Have Questions?** → [Ask in Discussions](https://github.com/SimeonTsvetanov/Cap-Me-Too/discussions)
 - ☕ **Support Development** → [Buy me a coffee](https://buymeacoffee.com/simeontsvetanov)
 
 ---
@@ -123,8 +123,8 @@ Join our growing community of content creators and developers:
 <div align="center">
   <p><strong>Made with ❤️ for content creators worldwide</strong></p>
   <p>
-    <a href="https://YOUR-USERNAME.github.io/capmetoo">🚀 Try CapMeToo</a> •
-    <a href="https://github.com/YOUR-USERNAME/capmetoo">📁 GitHub Repository</a> •
+    <a href="https://simeontsvetanov.github.io/Cap-Me-Too">🚀 Try CapMeToo</a> •
+    <a href="https://github.com/SimeonTsvetanov/Cap-Me-Too">📁 GitHub Repository</a> •
     <a href="https://buymeacoffee.com/simeontsvetanov">☕ Support</a>
   </p>
 </div>

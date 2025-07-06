@@ -21,7 +21,7 @@ This guide will help you get up and running with CapMeToo in just a few minutes.
 
 ### 2. Open CapMeToo
 
-1. Go to [CapMeToo](https://your-username.github.io/capmetoo)
+1. Go to [CapMeToo](https://simeontsvetanov.github.io/Cap-Me-Too)
 2. You'll see the welcome screen asking for your API key
 
 ### 3. Enter Your API Key
@@ -115,9 +115,9 @@ CapMeToo works great on mobile devices:
 
 - 📖 **[User Guide](user-guide.md)** - Detailed feature explanations
 - ❓ **[FAQ](faq.md)** - Common questions and answers
-- 🐛 **[Report Issues](https://github.com/your-username/capmetoo/issues)** - Found a bug?
-- 💬 **[Community](https://github.com/your-username/capmetoo/discussions)** - Ask questions
+- 🐛 **[Report Issues](https://github.com/SimeonTsvetanov/Cap-Me-Too/issues)** - Found a bug?
+- 💬 **[Community](https://github.com/SimeonTsvetanov/Cap-Me-Too/discussions)** - Ask questions
 
 ---
 
-**Ready to create amazing captions?** [Start using CapMeToo now!](https://your-username.github.io/capmetoo)
+**Ready to create amazing captions?** [Start using CapMeToo now!](https://simeontsvetanov.github.io/Cap-Me-Too)
