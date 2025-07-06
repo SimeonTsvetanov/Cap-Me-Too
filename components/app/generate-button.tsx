@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 interface GenerateButtonProps {
-  onClick: () => void
-  disabled: boolean
-  isLoading: boolean
+  onClick: () => void;
+  disabled: boolean;
+  isLoading: boolean;
 }
 
 /**
@@ -17,7 +17,11 @@ interface GenerateButtonProps {
  * - Disabled states
  * - Smooth transitions
  */
-export function GenerateButton({ onClick, disabled, isLoading }: GenerateButtonProps) {
+export function GenerateButton({
+  onClick,
+  disabled,
+  isLoading,
+}: GenerateButtonProps) {
   return (
     <Button
       onClick={onClick}
@@ -29,17 +33,10 @@ export function GenerateButton({ onClick, disabled, isLoading }: GenerateButtonP
           : "bg-gradient-to-r from-primary via-purple-500 to-pink-500 hover:from-primary/90 hover:via-purple-500/90 hover:to-pink-500/90 text-white shadow-lg"
       }`}
     >
-      {isLoading ? (
-        <>
-          <span className="animate-spin mr-3 text-xl">⚡</span>
-          Generating Magic...
-        </>
-      ) : (
-        <>
-          <span className="mr-3 text-xl">🎨</span>
-          Generate Caption
-        </>
-      )}
+      <>
+        <span className="mr-3 text-xl">🎨</span>
+        Generate Caption
+      </>
     </Button>
-  )
+  );
 }

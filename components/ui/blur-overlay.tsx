@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import type { ReactNode } from "react"
+import type { ReactNode } from "react";
 
 interface BlurOverlayProps {
-  children: ReactNode
-  onClick: () => void
+  children: ReactNode;
+  onClick: () => void;
 }
 
 /**
@@ -19,10 +19,10 @@ interface BlurOverlayProps {
 export function BlurOverlay({ children, onClick }: BlurOverlayProps) {
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/3 backdrop-blur-[1px] animate-in fade-in duration-300"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/20 backdrop-blur-[8px] animate-in fade-in duration-300"
       onClick={onClick}
     >
       {children}
     </div>
-  )
+  );
 }

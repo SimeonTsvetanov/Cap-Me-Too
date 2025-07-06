@@ -44,10 +44,10 @@ export function TopicLanguageSelector({
             Caption Style
           </label>
           <Select value={selectedTopic} onValueChange={onTopicChange}>
-            <SelectTrigger className="shadow-none no-border bg-transparent backdrop-blur-none">
+            <SelectTrigger className="shadow-floating no-border bg-background/95 backdrop-blur-sm">
               <SelectValue placeholder="Select style" />
             </SelectTrigger>
-            <SelectContent className="shadow-none no-border bg-transparent backdrop-blur-none">
+            <SelectContent className="shadow-floating no-border bg-background/95 backdrop-blur-sm">
               {topics.map((topic) => (
                 <SelectItem
                   key={topic.id}
@@ -70,10 +70,10 @@ export function TopicLanguageSelector({
             Language
           </label>
           <Select value={selectedLanguage} onValueChange={onLanguageChange}>
-            <SelectTrigger className="shadow-none no-border bg-transparent backdrop-blur-none">
+            <SelectTrigger className="shadow-floating no-border bg-background/95 backdrop-blur-sm">
               <SelectValue placeholder="Select language" />
             </SelectTrigger>
-            <SelectContent className="shadow-none no-border bg-transparent backdrop-blur-none">
+            <SelectContent className="shadow-floating no-border bg-background/95 backdrop-blur-sm">
               {languages.map((language) => (
                 <SelectItem
                   key={language.code}
