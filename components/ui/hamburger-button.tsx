@@ -1,30 +1,34 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { Menu } from "lucide-react"
+import Hamburger from "hamburger-react";
 
 interface HamburgerButtonProps {
-  onClick: () => void
+  onClick: () => void;
+  isOpen: boolean;
 }
 
 /**
- * Simple hamburger button component
+ * Animated hamburger button component
  * Features:
- * - Clean hamburger icon using Lucide
+ * - Smooth animation transforming into X
+ * - CSS-driven transitions for performance
+ * - Consistent positioning and sizing
  * - Hover effects
  * - Accessible button
- * - Consistent styling
  */
-export function HamburgerButton({ onClick }: HamburgerButtonProps) {
+export function HamburgerButton({ onClick, isOpen }: HamburgerButtonProps) {
   return (
-    <Button
-      variant="ghost"
-      size="sm"
-      onClick={onClick}
-      className="w-10 h-10 p-0 hover:bg-accent/50 transition-colors"
-      aria-label="Open menu"
-    >
-      <Menu className="h-5 w-5" />
-    </Button>
-  )
+    <div className="flex items-center justify-center w-10 h-10 hover:bg-accent/50 rounded-md transition-colors">
+      <Hamburger
+        toggled={isOpen}
+        toggle={onClick}
+        size={20}
+        duration={0.4}
+        distance="sm"
+        color="currentColor"
+        rounded
+        label="Toggle menu"
+      />
+    </div>
+  );
 }

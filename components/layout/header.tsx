@@ -54,7 +54,10 @@ export function Header({ currentApiKey, onApiKeyUpdate }: HeaderProps) {
             </div>
 
             {/* Hamburger Button */}
-            <HamburgerButton onClick={() => setIsMenuOpen(true)} />
+            <HamburgerButton
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              isOpen={isMenuOpen}
+            />
           </div>
         </div>
       </header>

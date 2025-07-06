@@ -88,7 +88,7 @@ export function MainApp({
               </div>
 
               {/* Generate Button */}
-              <div className="text-center transition-all duration-300 group-hover:scale-[1.01] transform pt-2 sm:pt-4">
+              <div className="flex justify-center items-center transition-all duration-300 group-hover:scale-[1.01] transform pt-2 sm:pt-4">
                 <GenerateButton
                   onClick={onGenerateCaption}
                   disabled={!currentImage || isGenerating}
