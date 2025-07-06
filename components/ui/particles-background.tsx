@@ -65,13 +65,13 @@ export function ParticlesBackground() {
       },
       particles: {
         color: {
-          value: isDark ? "#8b5cf6" : "#6366f1", // Primary color variations
+          value: isDark ? "#8b5cf6" : "#64748b", // Purple for dark, slate gray for light
         },
         links: {
-          color: isDark ? "#8b5cf6" : "#6366f1",
+          color: isDark ? "#8b5cf6" : "#64748b", // Purple for dark, slate gray for light
           distance: 120,
           enable: true,
-          opacity: isDark ? 0.25 : 0.3,
+          opacity: isDark ? 0.25 : 0.4,
           width: 1,
         },
         move: {
