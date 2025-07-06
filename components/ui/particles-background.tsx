@@ -39,6 +39,7 @@ export function ParticlesBackground() {
         color: {
           value: "transparent",
         },
+        opacity: 0,
       },
       fpsLimit: 60,
       interactivity: {
@@ -65,14 +66,14 @@ export function ParticlesBackground() {
       },
       particles: {
         color: {
-          value: isDark ? "#8b5cf6" : "#64748b", // Purple for dark, slate gray for light
+          value: isDark ? "#8b5cf6" : "#475569", // Purple for dark, darker slate for light
         },
         links: {
-          color: isDark ? "#8b5cf6" : "#64748b", // Purple for dark, slate gray for light
+          color: isDark ? "#8b5cf6" : "#334155", // Purple for dark, dark slate for light
           distance: 120,
           enable: true,
-          opacity: isDark ? 0.25 : 0.4,
-          width: 1,
+          opacity: isDark ? 0.25 : 0.6,
+          width: 1.2,
         },
         move: {
           direction: "none",

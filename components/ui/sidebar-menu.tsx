@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { X, Key } from "lucide-react";
+import { HamburgerButton } from "@/components/ui/hamburger-button";
+import { Key } from "lucide-react";
 import { useTheme } from "next-themes";
 
 interface SidebarMenuProps {
@@ -102,15 +103,7 @@ export function SidebarMenu({
             >
               Menu
             </h2>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={onClose}
-              className="rounded-full w-8 h-8 p-0 hover:bg-accent/50"
-              aria-label="Close menu"
-            >
-              <X className="h-4 w-4" />
-            </Button>
+            <HamburgerButton onClick={onClose} isOpen={true} />
           </div>
 
           {/* Menu Items */}

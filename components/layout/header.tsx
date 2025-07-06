@@ -43,7 +43,7 @@ export function Header({ currentApiKey, onApiKeyUpdate }: HeaderProps) {
         ${isScrolled ? "shadow-lg" : ""}
       `}
       >
-        <div className="px-0">
+        <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 flex-row">
             {/* Logo Section */}
             <div className="flex items-center space-x-3">

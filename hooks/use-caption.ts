@@ -1,7 +1,10 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { generateCaptionWithAI, getFallbackCaption } from "@/utils/caption-generator"
+import { useState } from "react";
+import {
+  generateCaptionWithAI,
+  getFallbackCaption,
+} from "@/utils/caption-generator";
 
 /**
  * Enhanced caption hook with multi-language support
@@ -14,17 +17,17 @@ import { generateCaptionWithAI, getFallbackCaption } from "@/utils/caption-gener
  * - Copy functionality with notifications
  */
 export function useCaption(apiKey: string) {
-  const [currentImage, setCurrentImage] = useState<string | null>(null)
-  const [selectedTopic, setSelectedTopic] = useState("funny") // Default to funny
-  const [selectedLanguage, setSelectedLanguage] = useState("en") // Default to English
-  const [caption, setCaption] = useState("")
-  const [isGenerating, setIsGenerating] = useState(false)
-  const [showCaptionModal, setShowCaptionModal] = useState(false)
+  const [currentImage, setCurrentImage] = useState<string | null>(null);
+  const [selectedTopic, setSelectedTopic] = useState("funny"); // Default to funny
+  const [selectedLanguage, setSelectedLanguage] = useState("en"); // Default to English
+  const [caption, setCaption] = useState("");
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [showCaptionModal, setShowCaptionModal] = useState(false);
 
   const generateCaption = async () => {
-    if (!currentImage || !apiKey) return
+    if (!currentImage || !apiKey) return;
 
-    setIsGenerating(true)
+    setIsGenerating(true);
 
     try {
       const generatedCaption = await generateCaptionWithAI({
@@ -32,30 +35,37 @@ export function useCaption(apiKey: string) {
         topic: selectedTopic,
         language: selectedLanguage,
         apiKey,
-      })
+      });
 
-      setCaption(generatedCaption)
-      setShowCaptionModal(true)
+      setCaption(generatedCaption);
+      setShowCaptionModal(true);
     } catch (error) {
-      console.error("Caption generation failed:", error)
+      console.error("Caption generation failed:", error);
       // Fallback to sample captions if API fails
-      const fallbackCaption = getFallbackCaption(selectedTopic, selectedLanguage)
-      setCaption(fallbackCaption)
-      setShowCaptionModal(true)
+      const fallbackCaption = getFallbackCaption(
+        selectedTopic,
+        selectedLanguage
+      );
+      setCaption(fallbackCaption);
+      setShowCaptionModal(true);
     } finally {
-      setIsGenerating(false)
+      setIsGenerating(false);
     }
-  }
+  };
 
   const copyCaption = async () => {
     try {
-      await navigator.clipboard.writeText(caption)
-      showNotification("Caption copied to clipboard! 🎉", "success")
+      await navigator.clipboard.writeText(caption);
+      showNotification("Copied to clipboard! 🎉", "success");
+      // Close modal and return to main screen
+      setTimeout(() => {
+        setShowCaptionModal(false);
+      }, 800); // Small delay to show the notification
     } catch (error) {
-      console.error("Failed to copy caption:", error)
-      showNotification("Failed to copy caption", "error")
+      console.error("Failed to copy caption:", error);
+      showNotification("Failed to copy caption", "error");
     }
-  }
+  };
 
   return {
     currentImage,
@@ -70,17 +80,17 @@ export function useCaption(apiKey: string) {
     setShowCaptionModal,
     generateCaption,
     copyCaption,
-  }
+  };
 }
 
 function showNotification(message: string, type: "success" | "error") {
-  const notification = document.createElement("div")
-  notification.textContent = message
+  const notification = document.createElement("div");
+  notification.textContent = message;
   notification.className = `fixed top-20 right-4 px-4 py-2 rounded-lg shadow-floating z-50 animate-in slide-in-from-right duration-300 ${
     type === "success" ? "bg-green-500 text-white" : "bg-red-500 text-white"
-  }`
-  document.body.appendChild(notification)
+  }`;
+  document.body.appendChild(notification);
   setTimeout(() => {
-    notification.remove()
-  }, 3000)
+    notification.remove();
+  }, 3000);
 }
