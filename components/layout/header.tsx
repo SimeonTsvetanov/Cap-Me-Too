@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Logo } from "@/components/ui/logo";
 import { HamburgerButton } from "@/components/ui/hamburger-button";
 import { SidebarMenu } from "@/components/ui/sidebar-menu";
@@ -11,19 +11,38 @@ interface HeaderProps {
 }
 
 /**
- * Fixed header component with sidebar menu
+ * Fixed header component with sidebar menu and scroll effects
  * Features:
  * - Logo with brand name
  * - Hamburger button for menu
  * - Direct API key management in sidebar
- * - No separate settings modal needed
+ * - Dynamic shadow on scroll
+ * - Smooth transitions
  */
 export function Header({ currentApiKey, onApiKeyUpdate }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-30 bg-background/70 backdrop-blur-md transition-all duration-300">
+      <header
+        className={`
+        fixed top-0 left-0 right-0 z-30 
+        bg-background/70 backdrop-blur-md 
+        transition-all duration-300 
+        ${isScrolled ? "shadow-lg" : ""}
+      `}
+      >
         <div className="px-0">
           <div className="flex items-center justify-between h-16 flex-row">
             {/* Logo Section */}

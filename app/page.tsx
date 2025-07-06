@@ -7,6 +7,7 @@ import { ApiKeySetup } from "@/components/setup/api-key-setup";
 import { MainApp } from "@/components/app/main-app";
 import { CaptionModal } from "@/components/modals/caption-modal";
 import { LoadingScreen } from "@/components/ui/loading-screen";
+import { ParticlesBackground } from "@/components/ui/particles-background";
 import { useStorage } from "@/hooks/use-storage";
 import { useCaption } from "@/hooks/use-caption";
 import { PerformanceMonitor } from "@/components/ui/performance-monitor";
@@ -96,6 +97,7 @@ export default function CapMeToo() {
   return (
     <div className="min-h-screen flex flex-col">
       {process.env.NODE_ENV === "development" && <PerformanceMonitor />}
+      <ParticlesBackground />
       <Header currentApiKey={apiKey} onApiKeyUpdate={handleApiKeySave} />
       <main className="pt-20 pb-0 min-h-screen">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,20 +1,19 @@
 import { Logo } from "@/components/ui/logo";
 
 /**
- * Footer component with custom logo and Buy Me a Coffee link
+ * Footer component with transparent design matching header
  * Features:
- * - Custom user logo instead of emoji
+ * - Fully transparent background with backdrop blur
+ * - Custom user logo and branding
  * - Buy Me a Coffee support link
  * - App version and copyright
  * - No borders for clean look
  * - Responsive design
+ * - Matches header transparency
  */
 export function Footer() {
   return (
-    <footer
-      className="bg-transparent backdrop-blur-sm mt-auto"
-      style={{ background: "transparent", backgroundColor: "transparent" }}
-    >
+    <footer className="fixed bottom-0 left-0 right-0 z-20 bg-background/70 backdrop-blur-md transition-all duration-300 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="text-center space-y-4">
           <div className="flex items-center justify-center space-x-2">
@@ -29,7 +28,7 @@ export function Footer() {
               href="https://www.buymeacoffee.com/simeonts"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:underline"
+              className="hover:underline hover:opacity-100 transition-opacity"
             >
               Buy me a coffee
             </a>

@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Logo } from "@/components/ui/logo";
+import { AnimatedBackground } from "@/components/ui/animated-background";
 
 interface ApiKeySetupProps {
   onApiKeySave: (apiKey: string) => void;
@@ -45,10 +46,8 @@ export function ApiKeySetup({ onApiKeySave }: ApiKeySetupProps) {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/*
-        AnimatedBackground was previously rendered here, but is now global in the layout.
-        This avoids duplicate backgrounds and ensures consistency across all screens.
-      */}
+      {/* AnimatedBackground for API key setup screen only */}
+      <AnimatedBackground />
 
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
         <Card className="w-full max-w-lg shadow-floating no-border backdrop-blur-sm bg-background/80">
