@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/icon-192x192.png" alt="CapMeToo Logo" width="120" height="120">
+  <img src="https://github.com/SimeonTsvetanov/Cap-Me-Too/blob/gh-pages/apple-touch-icon.png" alt="CapMeToo Logo" width="120" height="120">
   
   # CapMeToo ✨
   
@@ -12,7 +12,6 @@
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38B2AC.svg)](https://tailwindcss.com/)
   [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-  [![Deploy](https://github.com/SimeonTsvetanov/Cap-Me-Too/actions/workflows/deploy.yml/badge.svg)](https://github.com/SimeonTsvetanov/Cap-Me-Too/actions/workflows/deploy.yml)
   [![Issues](https://img.shields.io/github/issues/SimeonTsvetanov/Cap-Me-Too.svg)](https://github.com/SimeonTsvetanov/Cap-Me-Too/issues)
   [![Stars](https://img.shields.io/github/stars/SimeonTsvetanov/Cap-Me-Too.svg)](https://github.com/SimeonTsvetanov/Cap-Me-Too/stargazers)
   
